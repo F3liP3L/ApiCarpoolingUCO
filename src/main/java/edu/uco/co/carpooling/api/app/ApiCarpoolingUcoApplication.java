@@ -1,4 +1,4 @@
-package edu.uco.co.api.carpooling;
+package edu.uco.co.carpooling.api.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
