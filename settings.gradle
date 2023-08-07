@@ -3,4 +3,5 @@ rootProject.name = 'ApiCarpoolingUco'
 include 'CarpoolingApi'
 include 'CrossCutting'
 include 'CarpoolingCrossCutting'
+include 'CarpoolingApi'
 
