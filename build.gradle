@@ -1,33 +1,21 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.2'
-	id 'io.spring.dependency-management' version '1.1.2'
-}
-
-group = 'edu.uco.co.carpooling'
-version = '0.0.1-SNAPSHOT'
-
-java {
-	sourceCompatibility = '17'
-}
-
-configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
 }
 
 repositories {
 	mavenCentral()
 }
 
-dependencies {
+allprojects {
 
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	group = 'co.edu.uco.carpooling'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = '17'
+	tasks.register("preparekotlinbuildscriptmodel"){}
+
 }
+
+
 
 tasks.named('test') {
 	useJUnitPlatform()
