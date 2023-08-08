@@ -7,14 +7,10 @@ $.idea/modules/CarpoolingApi.test.iml,a\1\a1e0c89d9d3ac727591c0b62c92e7d9bdfeaf
 pCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/enumeration/ExceptionType.java,8\6\86931dcd662ce1ef87a84170e1559f420b3ec772
 ¤
 tCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/enumeration/ExceptionLocation.java,b\9\b935ab13d3f87bf25a3692c2b20aff70aed406bc
-I
-CrossCutting/build.gradle,5\0\50d86973b9a8cbd271a5bfdae33bbdcb33720089
 H
 CrossCutting/gradlew.bat,2\6\26fe23c84e68d8c135a4ee737c2ffd05d42f5969
 D
 CrossCutting/gradlew,1\6\16f6eef787b556193c95a1e0e107459990bd269e
-s
-C.idea/modules/CarpoolingApi/ApiCarpoolingUco.CarpoolingApi.main.iml,d\b\db61ce6d7aaf954371e35fe8f66df40918f40910
 e
 5CrossCutting/gradle/wrapper/gradle-wrapper.properties,c\3\c397e0a033b239a50de0a9362076f8bacf589ffb
 u

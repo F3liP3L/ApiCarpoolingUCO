@@ -3,8 +3,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 T
 $.idea/modules/CarpoolingApi.test.iml,a\1\a1e0c89d9d3ac727591c0b62c92e7d9bdfeaff46
-s
-C.idea/modules/CarpoolingApi/ApiCarpoolingUco.CarpoolingApi.main.iml,d\b\db61ce6d7aaf954371e35fe8f66df40918f40910
 w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b\4\b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
 Å
@@ -15,8 +13,6 @@ tCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/excepti
 pCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/enumeration/ExceptionType.java,8\6\86931dcd662ce1ef87a84170e1559f420b3ec772
 e
 5CrossCutting/gradle/wrapper/gradle-wrapper.properties,c\3\c397e0a033b239a50de0a9362076f8bacf589ffb
-I
-CrossCutting/build.gradle,5\0\50d86973b9a8cbd271a5bfdae33bbdcb33720089
 D
 CrossCutting/gradlew,1\6\16f6eef787b556193c95a1e0e107459990bd269e
 H

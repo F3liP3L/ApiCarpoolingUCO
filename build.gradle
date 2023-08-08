@@ -1,5 +1,7 @@
 plugins {
 	id 'java'
+	id 'org.springframework.boot' version '3.1.2'
+	id 'io.spring.dependency-management' version '1.1.2'
 }
 
 repositories {
@@ -11,11 +13,20 @@ allprojects {
 	group = 'co.edu.uco.carpooling'
 	version = '0.0.1-SNAPSHOT'
 	sourceCompatibility = '17'
+
 	tasks.register("preparekotlinbuildscriptmodel"){}
 
+
+	apply plugin: "org.springframework.boot"
+	apply plugin: "io.spring.dependency-management"
+	apply plugin: "java"
+
+	repositories {
+		mavenCentral()
+	}
+
+
 }
-
-
 
 tasks.named('test') {
 	useJUnitPlatform()
