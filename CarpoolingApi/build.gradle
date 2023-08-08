@@ -25,6 +25,7 @@ dependencies {
 
 	// Own modules
 	implementation project(':CarpoolingCrossCutting')
+	implementation project(':CrossCutting')
 
 }
 

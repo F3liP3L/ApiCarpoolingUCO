@@ -33,3 +33,13 @@ w
 GCrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilObject.java,b\4\b4a65e1d4a2abd1bf7a99dc2466c5ccd2b24f3f0
 Å
 Q.idea/sonarlint/securityhotspotstore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,1\0\10a03f31c4dce92cb371e761ce9429428bb6c176
+à
+XCarpoolingApi/src/test/java/co/edu/uco/carpooling/api/CarpoolingApiApplicationTests.java,3\c\3c322a0841c0e8ed9e4fafc026f66574c0d346c0
+f
+6CarpoolingApi/gradle/wrapper/gradle-wrapper.properties,f\b\fbd8889cba2166d17bcb93f98b8e56e787e47dfe
+I
+CarpoolingApi/gradlew.bat,f\3\f3379c5ea8d178ebea8be90bcde6d40a2746fc81
+E
+CarpoolingApi/gradlew,1\e\1eae9dc16d4e7164b2075a23f60e5331ee474c25
+H
+CarpoolingApi/.gitignore,1\0\1001f331a6189f73b9869c002a031aab28c4a176

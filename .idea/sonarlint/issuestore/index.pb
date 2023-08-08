@@ -33,3 +33,13 @@ u
 ECrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilText.java,a\0\a06f5ed6361df873f9d41694b429b8221317f463
 u
 ECrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilUUID.java,a\f\afa3c6b2c9401530d5e7e5178efd95de9d7f187a
+f
+6CarpoolingApi/gradle/wrapper/gradle-wrapper.properties,f\b\fbd8889cba2166d17bcb93f98b8e56e787e47dfe
+H
+CarpoolingApi/.gitignore,1\0\1001f331a6189f73b9869c002a031aab28c4a176
+E
+CarpoolingApi/gradlew,1\e\1eae9dc16d4e7164b2075a23f60e5331ee474c25
+I
+CarpoolingApi/gradlew.bat,f\3\f3379c5ea8d178ebea8be90bcde6d40a2746fc81
+ˆ
+XCarpoolingApi/src/test/java/co/edu/uco/carpooling/api/CarpoolingApiApplicationTests.java,3\c\3c322a0841c0e8ed9e4fafc026f66574c0d346c0
