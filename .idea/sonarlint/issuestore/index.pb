@@ -39,3 +39,13 @@ I
 CarpoolingApi/gradlew.bat,f\3\f3379c5ea8d178ebea8be90bcde6d40a2746fc81
 à
 XCarpoolingApi/src/test/java/co/edu/uco/carpooling/api/CarpoolingApiApplicationTests.java,3\c\3c322a0841c0e8ed9e4fafc026f66574c0d346c0
+í
+bCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/util/MapperJsonObject.java,d\7\d7006a43193e1db3e8ae0288abdef9e09d2cf7f4
+ù
+mCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/util/UtilMapperJsonObjectJackson.java,7\0\7027639c7cbc7d60419a8a7f1a0d928995459277
+Ç
+RCrossCutting/src/main/java/co/edu/uco/crosscutting/exception/GeneralException.java,9\4\9439de3e90b48ef0b98903ecebac46b087ef4e0d
+†
+pCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/CarpoolingCustomException.java,d\2\d2205b25d54de1377c4ca65f49c40ef0a2b1c239
+s
+C.idea/modules/CarpoolingApi/ApiCarpoolingUco.CarpoolingApi.main.iml,d\b\db61ce6d7aaf954371e35fe8f66df40918f40910

@@ -12,6 +12,9 @@
             <option value="$PROJECT_DIR$/CarpoolingApi" />
             <option value="$PROJECT_DIR$/CarpoolingCrossCutting" />
             <option value="$PROJECT_DIR$/CarpoolingDTO" />
+            <option value="$PROJECT_DIR$/CarpoolingEntity" />
+            <option value="$PROJECT_DIR$/CarpoolingInfraestructure" />
+            <option value="$PROJECT_DIR$/CarpoolingService" />
             <option value="$PROJECT_DIR$/CrossCutting" />
           </set>
         </option>
