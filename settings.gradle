@@ -5,6 +5,6 @@ include 'CrossCutting'
 include 'CarpoolingCrossCutting'
 include 'CarpoolingDTO'
 include 'CarpoolingService'
-include 'CarpoolingInfraestructure'
+include 'CarpoolingInfrastructure'
 include 'CarpoolingEntity'
 
