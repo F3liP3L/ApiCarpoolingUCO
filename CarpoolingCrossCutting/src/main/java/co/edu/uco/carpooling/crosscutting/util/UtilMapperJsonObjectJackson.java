@@ -7,7 +7,6 @@ import java.util.Optional;
 @Service
 public class UtilMapperJsonObjectJackson implements MapperJsonObject {
 
-
     @Override
     public Optional<String> execute(Object object) {
         return Optional.empty();

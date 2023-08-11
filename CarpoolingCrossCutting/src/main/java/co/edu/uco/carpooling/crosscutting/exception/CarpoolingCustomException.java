@@ -29,7 +29,7 @@ public class CarpoolingCustomException extends GeneralException {
     }
 
     public static CarpoolingCustomException buildTechnicalRepositoryException(String technicalMessage) {
-        return new CarpoolingCustomException(null, technicalMessage, null, ExceptionType.TECHNICAL, ExceptionLocation.REPOSITORY);
+        return new CarpoolingCustomException(null, technicalMessage, null, ExceptionType.TECHNICAL, ExceptionLocation.INFRAESTRUCTURE);
     }
 
     public static CarpoolingCustomException buildTechnicalServiceException(String technicalMessage) {
@@ -41,7 +41,7 @@ public class CarpoolingCustomException extends GeneralException {
     }
 
     public static CarpoolingCustomException buildTechnicalRepositoryException(String technicalMessage, Exception rootException) {
-        return new CarpoolingCustomException(null, technicalMessage, rootException, ExceptionType.TECHNICAL, ExceptionLocation.REPOSITORY);
+        return new CarpoolingCustomException(null, technicalMessage, rootException, ExceptionType.TECHNICAL, ExceptionLocation.INFRAESTRUCTURE);
     }
 
     public static CarpoolingCustomException build(String userMessage, String technicalMessage) {
