@@ -4,7 +4,7 @@ import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
 
 public class UtilNumeric {
     private static final UtilNumeric INSTANCE = new UtilNumeric();
-    private static final Byte ZERO = 0;
+    public static final Byte ZERO = 0;
 
     private UtilNumeric() {}
 

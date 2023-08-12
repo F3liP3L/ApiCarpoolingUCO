@@ -1,10 +1,15 @@
 package co.edu.uco.crosscutting.util;
 
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
 
 import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
 
 public class UtilDate {
+
+    private static final Time TIME = Time.valueOf(LocalTime.now());
+
     private static final UtilDate INSTANCE = new UtilDate();
 
     public static UtilDate getUtilDate() {
@@ -18,6 +23,14 @@ public class UtilDate {
     public Date getDefaultIsNull(Date value) {
         return getUtilObject().getDefaultIsNull(value, new Date());
     }
+
+
+    public Time getDefaultTime(Time value, Time defaultValue) {
+        return getUtilObject().getDefaultIsNull(value,defaultValue);
+    }
+    public Time getDefaultTimeIfNull(Time value) {return getDefaultTime(value,TIME);
+    }
+
 
     public boolean isBetween(Date date, Date init, Date end) {
         return (date.after(init) && date.before(end));
