@@ -1,7 +1,10 @@
 package co.edu.uco.crosscutting.util;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
@@ -31,7 +34,6 @@ public class UtilDate {
     public Time getDefaultTimeIfNull(Time value) {return getDefaultTime(value,TIME);
     }
 
-
     public boolean isBetween(Date date, Date init, Date end) {
         return (date.after(init) && date.before(end));
     }
@@ -47,4 +49,22 @@ public class UtilDate {
     public boolean isBetweenIncludingRanges(Date date, Date init, Date end) {
         return (isBetweenIncludingEnd(date, init, end) || isBetweenIncludingInit(date, init, end));
     }
+    
+    public LocalDate currentDate() {
+        return LocalDate.now();
+    }
+
+    public Date getLocalDateADate(LocalDate date) {
+        return Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
+
+    public LocalDate getDateALocalDate(Date date) {
+        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public boolean isOfLegalAge(Date birthDate) {
+        Period period = Period.between(getDateALocalDate(birthDate), currentDate());
+        return !UtilNumeric.getUtilNumeric().isLessThan(period.getYears(), 18);
+    }
+
 }
