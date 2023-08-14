@@ -49,7 +49,7 @@ public class UtilDate {
     public boolean isBetweenIncludingRanges(Date date, Date init, Date end) {
         return (isBetweenIncludingEnd(date, init, end) || isBetweenIncludingInit(date, init, end));
     }
-    
+
     public LocalDate currentDate() {
         return LocalDate.now();
     }
