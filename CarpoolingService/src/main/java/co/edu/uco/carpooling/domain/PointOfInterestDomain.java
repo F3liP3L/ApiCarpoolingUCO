@@ -2,10 +2,9 @@ package co.edu.uco.carpooling.domain;
 
 import co.edu.uco.carpooling.dto.CityDTO;
 import co.edu.uco.crosscutting.util.UtilText;
+import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
-
-import static co.edu.uco.crosscutting.util.UtilUUID.getDefaultUUID;
 
 public class PointOfInterestDomain {
 
@@ -14,13 +13,12 @@ public class PointOfInterestDomain {
     private CityDTO city;
 
 
-
     public UUID getId() {
         return id;
     }
 
     public void setId(UUID id) {
-        this.id = getDefaultUUID(id);
+        this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
     public String getPointOfInterestName() {return pointOfInterestName;}

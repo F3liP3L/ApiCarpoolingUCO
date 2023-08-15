@@ -11,8 +11,6 @@ e
 5CrossCutting/gradle/wrapper/gradle-wrapper.properties,c\3\c397e0a033b239a50de0a9362076f8bacf589ffb
 w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b\4\b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
-x
-HCrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilNumeric.java,b\4\b4538dbeab5b86a687ba8be837310610e3999057
 ~
 NCrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilSqlConnection.java,a\7\a728d89c55b3fc0f56e2a645fe2a50c8b2afa9a7
 Å
@@ -47,10 +45,6 @@ o
 ?CarpoolingService/src/main/java/co/edu/uco/carpooling/Main.java,d\c\dcc7006acef2705688eb16913b15d6ce43dfa7a8
 Ç
 RCrossCutting/src/main/java/co/edu/uco/crosscutting/exception/GeneralException.java,9\4\9439de3e90b48ef0b98903ecebac46b087ef4e0d
-w
-GCrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilObject.java,b\4\b4a65e1d4a2abd1bf7a99dc2466c5ccd2b24f3f0
-u
-ECrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilText.java,a\0\a06f5ed6361df873f9d41694b429b8221317f463
 |
 LCarpoolingApi/src/main/java/co/edu/uco/carpooling/api/response/Response.java,b\f\bf26bc05c9078cd6a0bc032b0eb29d3567271d61
 å
@@ -61,9 +55,11 @@ v
 FCarpoolingInfrastructure/src/main/java/co/edu/uco/carpooling/Main.java,3\b\3b2a5d2ac4769375d1906a9c127759103ab5a783
 í
 bCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/util/MapperJsonObject.java,d\7\d7006a43193e1db3e8ae0288abdef9e09d2cf7f4
-u
-ECrossCutting/src/main/java/co/edu/uco/crosscutting/util/UtilUUID.java,a\f\afa3c6b2c9401530d5e7e5178efd95de9d7f187a
 ù
 mCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/util/UtilMapperJsonObjectJackson.java,7\0\7027639c7cbc7d60419a8a7f1a0d928995459277
 †
 pCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/CarpoolingCustomException.java,d\2\d2205b25d54de1377c4ca65f49c40ef0a2b1c239
+U
+%CarpoolingInfrastructure/build.gradle,5\e\5e7e70e041d51b63dbdd613120a99d75756e975e
+§
+tCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/enumeration/ExceptionLocation.java,b\9\b935ab13d3f87bf25a3692c2b20aff70aed406bc

@@ -3,11 +3,11 @@ package co.edu.uco.carpooling.domain;
 import co.edu.uco.carpooling.dto.RouteDTO;
 import co.edu.uco.crosscutting.util.UtilDate;
 import co.edu.uco.crosscutting.util.UtilNumeric;
+import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.sql.Time;
 import java.util.UUID;
 
-import static co.edu.uco.crosscutting.util.UtilUUID.getDefaultUUID;
 
 
 public class RouteTrackDomain {
@@ -15,8 +15,8 @@ public class RouteTrackDomain {
     private UUID id;
     private RouteDTO route;
     private Time routeTrackTime;
-    private int latitud;
-    private int longitud;
+    private int latitude;
+    private int longitude;
     private Time routeCreationTime;
 
     public UUID getId() {
@@ -24,7 +24,7 @@ public class RouteTrackDomain {
     }
 
     public void setId(UUID id) {
-        this.id = getDefaultUUID(id);
+        this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
     public RouteDTO getRoute() {
@@ -43,24 +43,21 @@ public class RouteTrackDomain {
         this.routeTrackTime = UtilDate.getUtilDate().getDefaultTimeIfNull(routeTrackTime);
     }
 
-    public double getLatitud() {
-        return latitud;
+
+
+    public void setLatitude(int latitude) {
+        this.latitude = UtilNumeric.getUtilNumeric()
+                .isLessThan(latitude , UtilNumeric.ZERO) ? UtilNumeric.ZERO : latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 
 
-    public void setLatitud(int latitud) {
-        this.latitud = UtilNumeric.getUtilNumeric()
-                .isLessThan(latitud , UtilNumeric.ZERO)?UtilNumeric.ZERO : latitud;
-    }
-
-    public double getLongitud() {
-        return longitud;
-    }
-
-
-    public void setLongitud(int longitud) {
-        this.longitud = UtilNumeric.getUtilNumeric()
-                .isLessThan(longitud , UtilNumeric.ZERO)?UtilNumeric.ZERO : longitud;
+    public void setLongitude(int longitude) {
+        this.longitude = UtilNumeric.getUtilNumeric()
+                .isLessThan(longitude , UtilNumeric.ZERO) ? UtilNumeric.ZERO : longitude;
     }
 
     public Time getRouteCreationTime() {

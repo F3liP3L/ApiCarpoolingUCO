@@ -1,21 +1,22 @@
 package co.edu.uco.carpooling.domain;
 
+import co.edu.uco.carpooling.dto.DriverPerVehicleDTO;
 import co.edu.uco.carpooling.dto.PointOfInterestDTO;
 import co.edu.uco.carpooling.dto.StatusDTO;
 import co.edu.uco.crosscutting.util.UtilDate;
 import co.edu.uco.crosscutting.util.UtilNumeric;
+import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.sql.Time;
 import java.util.UUID;
 
-import static co.edu.uco.crosscutting.util.UtilUUID.getDefaultUUID;
 
 public class RouteDomain {
 
     private UUID id;
-//    private DriverPerVehicleDTO driverVehicle;
+    private DriverPerVehicleDTO driverVehicle;
     private int routeCapacity;
-    private PointOfInterestDTO pointOfInterest;
+    private PointOfInterestDomain pointOfInterest;
     private Time routeTime;
     private StatusDTO routeStatus;
 
@@ -24,16 +25,8 @@ public class RouteDomain {
     }
 
     public void setId(UUID id) {
-        this.id = getDefaultUUID(id);
+        this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
-
-//    public DriverPerVehicleDTO getDriverVehicle() {
-//        return driverVehicle;
-//    }
-//
-//    public void setDriverVehicle(DriverPerVehicleDTO driverVehicle) {
-//        this.driverVehicle = driverVehicle;
-//    }
 
     public int getRouteCapacity() {
         return routeCapacity;
@@ -44,11 +37,11 @@ public class RouteDomain {
                 .isLessThan(routeCapacity,UtilNumeric.ZERO)? UtilNumeric.ZERO: routeCapacity;
     }
 
-    public PointOfInterestDTO getPointOfInterest() {
+    public PointOfInterestDomain getPointOfInterest() {
         return pointOfInterest;
     }
 
-    public void setPointOfInterest(PointOfInterestDTO pointOfInterest) {
+    public void setPointOfInterest(PointOfInterestDomain pointOfInterest) {
         this.pointOfInterest = pointOfInterest;
     }
 

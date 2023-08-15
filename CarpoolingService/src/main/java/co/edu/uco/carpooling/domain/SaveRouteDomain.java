@@ -5,7 +5,7 @@ import co.edu.uco.crosscutting.util.UtilText;
 
 import java.util.UUID;
 
-import static co.edu.uco.crosscutting.util.UtilUUID.getDefaultUUID;
+import static co.edu.uco.crosscutting.util.UtilUUID.getUtilUUID;
 
 public class SaveRouteDomain {
     private UUID id;
@@ -17,7 +17,7 @@ public class SaveRouteDomain {
     }
 
     public void setId(UUID id) {
-        this.id = getDefaultUUID(id);
+        this.id = getUtilUUID().getDefaultUUID(id);
     }
 
     public String getSaveRoute() {
