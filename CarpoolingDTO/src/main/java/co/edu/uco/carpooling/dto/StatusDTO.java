@@ -10,6 +10,16 @@ public class StatusDTO {
     private UUID id;
     private String status;
 
+    public StatusDTO(UUID id, String status) {
+        setId(id);
+        setStatus(status);
+    }
+
+    public StatusDTO() {
+        setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
+        setStatus(UtilText.EMPTY);
+    }
+
     public UUID getId() {
         return id;
     }
@@ -24,5 +34,9 @@ public class StatusDTO {
 
     public void setStatus(String status) {
         this.status = UtilText.getUtilText().getDefault(status, UtilText.EMPTY);
+    }
+
+    public static final StatusDTO create() {
+        return new StatusDTO();
     }
 }

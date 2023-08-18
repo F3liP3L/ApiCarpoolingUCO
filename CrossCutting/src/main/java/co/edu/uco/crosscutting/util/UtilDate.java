@@ -11,7 +11,7 @@ import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
 
 public class UtilDate {
 
-    private static final Time TIME = Time.valueOf(LocalTime.now());
+    public static final Time TIME = Time.valueOf(LocalTime.now());
 
     private static final UtilDate INSTANCE = new UtilDate();
 

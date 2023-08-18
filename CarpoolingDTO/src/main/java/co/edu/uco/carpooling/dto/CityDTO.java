@@ -20,12 +20,16 @@ public class CityDTO {
         setName(UtilText.getUtilText().getDefault(UtilText.EMPTY));
     }
 
+    public static CityDTO create() {
+        return new CityDTO();
+    }
+
     public UUID getId() {
         return id;
     }
 
     public void setId(UUID id) {
-        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.DEFAULT_UUID);
+        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.getUtilUUID().getNewUUID());
     }
 
     public String getName() {

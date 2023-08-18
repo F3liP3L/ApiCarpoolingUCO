@@ -1,5 +1,7 @@
 package co.edu.uco.carpooling.dto;
 
+import co.edu.uco.crosscutting.util.UtilDate;
+import co.edu.uco.crosscutting.util.UtilNumeric;
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
@@ -19,7 +21,7 @@ public class RouteTrackDTO {
     }
 
     public void setId(UUID id) {
-        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.DEFAULT_UUID);
+        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.getUtilUUID().getNewUUID());
     }
 
     public RouteDTO getRoute() {
@@ -27,7 +29,7 @@ public class RouteTrackDTO {
     }
 
     public void setRoute(RouteDTO route) {
-        this.route = route;
+        this.route = UtilObject.getUtilObject().getDefaultIsNull(route, RouteDTO.create());
     }
 
     public Time getRouteTrackTime() {
@@ -35,7 +37,7 @@ public class RouteTrackDTO {
     }
 
     public void setRouteTrackTime(Time routeTrackTime) {
-        this.routeTrackTime = routeTrackTime;
+        this.routeTrackTime = UtilDate.getUtilDate().getDefaultTimeIfNull(routeTrackTime);
     }
 
     public Integer getLatitude() {
@@ -43,7 +45,7 @@ public class RouteTrackDTO {
     }
 
     public void setLatitude(Integer latitude) {
-        this.latitude = latitude;
+        this.latitude = (Integer) UtilNumeric.getUtilNumeric().getDefault(latitude);
     }
 
     public Integer getLongitude() {
@@ -51,7 +53,7 @@ public class RouteTrackDTO {
     }
 
     public void setLongitude(Integer longitude) {
-        this.longitude = longitude;
+        this.longitude = (Integer) UtilNumeric.getUtilNumeric().getDefault(longitude);
     }
 
     public Time getRouteCreationTime() {
@@ -59,6 +61,6 @@ public class RouteTrackDTO {
     }
 
     public void setRouteCreationTime(Time routeCreationTime) {
-        this.routeCreationTime = routeCreationTime;
+        this.routeCreationTime = UtilDate.getUtilDate().getDefaultTimeIfNull(routeCreationTime);
     }
 }

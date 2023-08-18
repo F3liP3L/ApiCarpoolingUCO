@@ -7,7 +7,6 @@ import co.edu.uco.crosscutting.util.UtilUUID;
 import java.util.UUID;
 
 public class PointOfInterestDTO {
-
     private UUID id;
     private String name;
     private CityDTO city;
@@ -18,12 +17,18 @@ public class PointOfInterestDTO {
         setName(name);
     }
 
+    public PointOfInterestDTO() {
+        setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
+        setName(UtilText.EMPTY);
+        setCity(CityDTO.create());
+    }
+
     public UUID getId() {
         return id;
     }
 
     public void setId(UUID id) {
-        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.DEFAULT_UUID);
+        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.getUtilUUID().getNewUUID());
     }
 
     public String getName() {
@@ -39,6 +44,12 @@ public class PointOfInterestDTO {
     }
 
     public void setCity(CityDTO city) {
-        this.city = city;
+        this.city = UtilObject.getUtilObject().getDefaultIsNull(city, CityDTO.create());
     }
+
+    public static final PointOfInterestDTO create() {
+        return new PointOfInterestDTO();
+    }
+
+
 }
