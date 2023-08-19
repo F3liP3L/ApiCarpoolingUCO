@@ -22,6 +22,7 @@ public class RouteDTO {
         setRouteCapacity(routeCapacity);
         setRouteStatus(routeStatus);
         setPointOfInterest(pointOfInterest);
+        setRouteTime(routeTime);
     }
 
     public RouteDTO() {

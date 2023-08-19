@@ -45,8 +45,6 @@ v
 FCarpoolingInfrastructure/src/main/java/co/edu/uco/carpooling/Main.java,3\b\3b2a5d2ac4769375d1906a9c127759103ab5a783
 í
 bCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/util/MapperJsonObject.java,d\7\d7006a43193e1db3e8ae0288abdef9e09d2cf7f4
-ù
-mCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/util/UtilMapperJsonObjectJackson.java,7\0\7027639c7cbc7d60419a8a7f1a0d928995459277
 †
 pCarpoolingCrossCutting/src/main/java/co/edu/uco/carpooling/crosscutting/exception/CarpoolingCustomException.java,d\2\d2205b25d54de1377c4ca65f49c40ef0a2b1c239
 U

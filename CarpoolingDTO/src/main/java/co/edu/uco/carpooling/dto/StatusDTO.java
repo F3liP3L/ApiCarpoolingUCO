@@ -3,7 +3,6 @@ package co.edu.uco.carpooling.dto;
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilText;
 import co.edu.uco.crosscutting.util.UtilUUID;
-
 import java.util.UUID;
 
 public class StatusDTO {
