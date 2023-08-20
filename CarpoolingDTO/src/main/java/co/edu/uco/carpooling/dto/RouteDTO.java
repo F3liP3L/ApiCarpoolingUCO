@@ -31,6 +31,7 @@ public class RouteDTO {
         setPointOfInterest(PointOfInterestDTO.create());
         setRouteStatus(StatusDTO.create());
         setDriverVehicle(DriverPerVehicleDTO.create());
+        setRouteTime(UtilDate.TIME);
     }
 
     public UUID getId() {

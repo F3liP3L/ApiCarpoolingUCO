@@ -17,7 +17,7 @@ public class DriverPerVehicleDTO {
 
     public DriverPerVehicleDTO() {
         setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
-        setNameVehicle(UtilText.EMPTY);
+        setName(UtilText.EMPTY);
         setNameVehicle(UtilText.EMPTY);
     }
 

@@ -11,11 +11,12 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+
     // Own modules
     implementation project(':CarpoolingCrossCutting')
     implementation project(':CrossCutting')
     implementation project(':CarpoolingDTO')
-
 }
 
 tasks.named('test') {
