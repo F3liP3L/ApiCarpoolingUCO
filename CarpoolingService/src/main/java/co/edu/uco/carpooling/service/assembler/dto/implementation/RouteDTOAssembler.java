@@ -1,4 +1,4 @@
-package co.edu.uco.carpooling.service.assembler.dto.impl;
+package co.edu.uco.carpooling.service.assembler.dto.implementation;
 
 import co.edu.uco.carpooling.dto.RouteDTO;
 import co.edu.uco.carpooling.service.assembler.dto.DTOAssembler;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RouteDTOAssembler implements DTOAssembler<RouteDomain, RouteDTO> {
-    private final ModelMapper modelMapper;
+    private ModelMapper modelMapper;
 
-    public RouteDTOAssembler(ModelMapper modelMapper) {
+    public RouteDTOAssembler() {
         this.modelMapper = new ModelMapper();
     }
 

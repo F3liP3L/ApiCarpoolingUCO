@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ChooseRouteUseCaseImpl implements ChooseRouteUseCase {
-
-    @Autowired
-    private EntityAssembler<RouteDTO, RouteDomain> entityAssembler;
-
+    
     @Override
     public void execute(RouteDomain domain) { }
 }
