@@ -33,7 +33,7 @@ public class RouteDomain {
 
     public final void setRouteCapacity(final int capacity) {
         this.routeCapacity = UtilNumeric.getUtilNumeric()
-                .isLessThan(routeCapacity,UtilNumeric.ZERO)? UtilNumeric.ZERO: routeCapacity;
+                .isLessThan(routeCapacity, UtilNumeric.ZERO)? UtilNumeric.ZERO: routeCapacity;
     }
 
     public PointOfInterestDomain getPointOfInterest() {

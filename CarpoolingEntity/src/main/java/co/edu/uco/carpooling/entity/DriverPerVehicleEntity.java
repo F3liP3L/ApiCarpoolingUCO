@@ -18,6 +18,7 @@ import java.util.UUID;
 public class DriverPerVehicleEntity {
     @Id
     private UUID id;
-
+    private String name;
+    private String nameVehicle;
 
 }

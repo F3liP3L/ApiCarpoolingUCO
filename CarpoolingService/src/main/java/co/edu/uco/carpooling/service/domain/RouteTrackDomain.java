@@ -43,8 +43,6 @@ public class RouteTrackDomain {
         this.routeTrackTime = UtilDate.getUtilDate().getDefaultTimeIfNull(routeTrackTime);
     }
 
-
-
     public void setLatitude(int latitude) {
         this.latitude = UtilNumeric.getUtilNumeric()
                 .isLessThan(latitude , UtilNumeric.ZERO) ? UtilNumeric.ZERO : latitude;

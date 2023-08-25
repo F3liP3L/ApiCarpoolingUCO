@@ -14,7 +14,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 public class CustomerEntity {
-
     @Id
     private UUID id;
+    private String name;
+    private String password;
+    private String mailEntity;
+    private String documentIdentity;
+
 }

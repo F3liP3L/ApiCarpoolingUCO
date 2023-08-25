@@ -5,9 +5,9 @@ import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
 
-public class CityDomain {
+public class StatusDomain {
     private UUID id;
-    private String name;
+    private String status;
 
     public UUID getId() {
         return id;
@@ -17,8 +17,8 @@ public class CityDomain {
         this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
-    public String getName() {return name;}
+    public String getName() {return status;}
 
-    public void setName(String name) {this.name = UtilText.getUtilText().trim(name);}
+    public void setName(String status) {this.status = UtilText.getUtilText().trim(status);}
 
 }

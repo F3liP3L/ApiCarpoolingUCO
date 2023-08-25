@@ -1,8 +1,10 @@
 package co.edu.uco.carpooling.service.assembler.entity;
 
-public interface EntityAssembler<E,D> {
+public interface EntityAssembler<E,D,T> {
 
     D assembleDomain(E entity);
-    E assembleEntity(E domain);
+    E assembleEntity(D domain);
+    T assembleDTO(E entity);
+
 
 }

@@ -16,7 +16,6 @@ import java.util.UUID;
 public class RouteEntity {
     @Id
     private UUID id;
-
     @ManyToOne
     private DriverPerVehicleEntity driverVehicle;
     private int routeCapacity;
