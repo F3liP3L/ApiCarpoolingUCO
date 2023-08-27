@@ -1,9 +1,8 @@
 package co.edu.uco.carpooling.service.usecase.pointofinterest.implementation;
 
 import co.edu.uco.carpooling.dto.PointOfInterestDTO;
-import co.edu.uco.carpooling.infrastructure.adapter.repository.PointOfInterestRepository;
+import co.edu.uco.carpooling.infrastructure.adapter.repository.postgressql.PointOfInterestRepositoryPostgresSQL;
 import co.edu.uco.carpooling.service.assembler.entity.implementation.PointOfInterestEntityAssembler;
-import co.edu.uco.carpooling.service.domain.PointOfInterestDomain;
 import co.edu.uco.carpooling.service.usecase.pointofinterest.ListPointOfInterestUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +14,7 @@ import java.util.Optional;
 public class ListPointOfInterestUseCaseImpl implements ListPointOfInterestUseCase {
 
     @Autowired
-    private PointOfInterestRepository pointOfInterestRepository;
+    private PointOfInterestRepositoryPostgresSQL pointOfInterestRepository;
 
     @Autowired
     private PointOfInterestEntityAssembler entityAssembler;
