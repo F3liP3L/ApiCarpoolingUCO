@@ -1,13 +1,25 @@
 package co.edu.uco.carpooling.service.domain;
 
-import co.edu.uco.crosscutting.util.UtilText;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
 
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
+
 public class StatusDomain {
     private UUID id;
     private String status;
+
+    public StatusDomain(UUID id, String status) {
+        setId(id);
+        setStatus(status);
+    }
+
+    public StatusDomain() {
+        setId(UtilUUID.getUtilUUID().getNewUUID());
+        setStatus(EMPTY);
+    }
 
     public UUID getId() {
         return id;
@@ -17,8 +29,12 @@ public class StatusDomain {
         this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
-    public String getName() {return status;}
+    public String getStatus() {return status;}
 
-    public void setName(String status) {this.status = UtilText.getUtilText().trim(status);}
+    public void setStatus(String status) {this.status = getUtilText().trim(status);}
+
+    public static StatusDomain build() {
+        return new StatusDomain();
+    }
 
 }

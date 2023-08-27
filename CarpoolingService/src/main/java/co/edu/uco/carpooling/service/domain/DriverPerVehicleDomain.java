@@ -1,13 +1,15 @@
-package co.edu.uco.carpooling.dto;
+package co.edu.uco.carpooling.service.domain;
 
 import co.edu.uco.crosscutting.util.UtilObject;
-import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
-import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
 
-public class DriverPerVehicleDTO {
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
+
+public class DriverPerVehicleDomain {
+
     private UUID id;
     private String name;
     private String nameVehicle;
@@ -16,13 +18,13 @@ public class DriverPerVehicleDTO {
         return id;
     }
 
-    public DriverPerVehicleDTO() {
-        setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
+    public DriverPerVehicleDomain() {
+        setId(UtilUUID.getUtilUUID().getNewUUID());
         setName(EMPTY);
         setNameVehicle(EMPTY);
     }
 
-    public DriverPerVehicleDTO(UUID id, String name, String nameVehicle) {
+    public DriverPerVehicleDomain(UUID id, String name, String nameVehicle) {
         setId(id);
         setName(name);
         setNameVehicle(nameVehicle);
@@ -37,7 +39,7 @@ public class DriverPerVehicleDTO {
     }
 
     public void setName(String name) {
-        this.name = getUtilText().trim(name);
+        this.name = getUtilText().getDefault(name);
     }
 
     public String getNameVehicle() {
@@ -45,11 +47,14 @@ public class DriverPerVehicleDTO {
     }
 
     public void setNameVehicle(String nameVehicle) {
-        this.nameVehicle = getUtilText().trim(nameVehicle);
+        this.nameVehicle = getUtilText().getDefault(nameVehicle);
     }
 
-    public static final DriverPerVehicleDTO create() {
-        return new DriverPerVehicleDTO();
+    public static final DriverPerVehicleDomain build() {
+        return new DriverPerVehicleDomain();
     }
 
+    public static final DriverPerVehicleDomain build(final UUID id, final String name, final String nameVehicle) {
+        return new DriverPerVehicleDomain(id, name, nameVehicle);
+    }
 }

@@ -1,7 +1,8 @@
 package co.edu.uco.carpooling.dto;
 
 import co.edu.uco.crosscutting.util.UtilObject;
-import co.edu.uco.crosscutting.util.UtilText;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
@@ -23,10 +24,10 @@ public class CustomerDTO {
 
     public CustomerDTO() {
         setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
-        setName(UtilText.EMPTY);
-        setPassword(UtilText.EMPTY);
-        setMailEntity(UtilText.EMPTY);
-        setDocumentIdentity(UtilText.EMPTY);
+        setName(EMPTY);
+        setPassword(EMPTY);
+        setMailEntity(EMPTY);
+        setDocumentIdentity(EMPTY);
     }
 
     public UUID getId() {
@@ -36,13 +37,12 @@ public class CustomerDTO {
     public void setId(UUID id) {
         this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.getUtilUUID().getNewUUID());
     }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = UtilText.getUtilText().getDefault(name, UtilText.EMPTY);
+        this.name = getUtilText().trim(name);
     }
 
     public String getPassword() {
@@ -50,7 +50,7 @@ public class CustomerDTO {
     }
 
     public void setPassword(String password) {
-        this.password = UtilText.getUtilText().getDefault(password, UtilText.EMPTY);
+        this.password = getUtilText().trim(password);
     }
 
     public String getMailEntity() {
@@ -58,7 +58,7 @@ public class CustomerDTO {
     }
 
     public void setMailEntity(String mailEntity) {
-        this.mailEntity = UtilText.getUtilText().getDefault(mailEntity, UtilText.EMPTY);
+        this.mailEntity = getUtilText().trim(mailEntity);
     }
 
     public String getDocumentIdentity() {
@@ -66,10 +66,10 @@ public class CustomerDTO {
     }
 
     public void setDocumentIdentity(String documentIdentity) {
-        this.documentIdentity = UtilText.getUtilText().getDefault(documentIdentity, UtilText.EMPTY);
-    }
+        this.documentIdentity = getUtilText().trim(documentIdentity);  }
 
     public static final CustomerDTO create() {
         return new CustomerDTO();
     }
+
 }

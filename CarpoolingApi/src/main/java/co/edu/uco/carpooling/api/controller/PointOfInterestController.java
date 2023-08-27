@@ -1,6 +1,8 @@
 package co.edu.uco.carpooling.api.controller;
 
+import co.edu.uco.carpooling.dto.CityDTO;
 import co.edu.uco.carpooling.dto.PointOfInterestDTO;
+import co.edu.uco.carpooling.service.usecase.city.ListCityUseCase;
 import co.edu.uco.carpooling.service.usecase.pointofinterest.ListPointOfInterestUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,8 +19,16 @@ public class PointOfInterestController {
     @Autowired
     private ListPointOfInterestUseCase listPointOfInterestUseCase;
 
+    @Autowired
+    private ListCityUseCase listCityUseCase;
+
     @GetMapping()
     public List<PointOfInterestDTO> getPointOfInterest(){
         return listPointOfInterestUseCase.execute(Optional.of(PointOfInterestDTO.create()));
+    }
+
+    @GetMapping("/citys")
+    public List<CityDTO> getCities() {
+        return listCityUseCase.execute(Optional.of(CityDTO.create()));
     }
 }

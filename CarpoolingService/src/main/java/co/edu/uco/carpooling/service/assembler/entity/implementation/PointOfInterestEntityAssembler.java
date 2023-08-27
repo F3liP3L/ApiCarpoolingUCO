@@ -27,7 +27,7 @@ public class PointOfInterestEntityAssembler implements EntityAssembler<PointOfIn
 
     @Override
     public PointOfInterestDTO assembleDTO(PointOfInterestEntity entity) {
-        return null;
+        return modelMapper.map(entity, PointOfInterestDTO.class);
     }
 
 }

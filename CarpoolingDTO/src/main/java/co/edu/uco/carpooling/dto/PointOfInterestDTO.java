@@ -1,7 +1,8 @@
 package co.edu.uco.carpooling.dto;
 
 import co.edu.uco.crosscutting.util.UtilObject;
-import co.edu.uco.crosscutting.util.UtilText;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
@@ -19,7 +20,7 @@ public class PointOfInterestDTO {
 
     public PointOfInterestDTO() {
         setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
-        setName(UtilText.EMPTY);
+        setName(EMPTY);
         setCity(CityDTO.create());
     }
 
@@ -36,7 +37,7 @@ public class PointOfInterestDTO {
     }
 
     public void setName(String name) {
-        this.name = UtilText.getUtilText().getDefault(name, UtilText.EMPTY);
+        this.name = getUtilText().trim(name);
     }
 
     public CityDTO getCity() {

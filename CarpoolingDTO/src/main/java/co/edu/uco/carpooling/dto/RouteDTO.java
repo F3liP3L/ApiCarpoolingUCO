@@ -1,7 +1,9 @@
 package co.edu.uco.carpooling.dto;
 
-import co.edu.uco.crosscutting.util.UtilDate;
-import co.edu.uco.crosscutting.util.UtilNumeric;
+import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
+import static co.edu.uco.crosscutting.util.UtilDate.TIME;
+import static co.edu.uco.crosscutting.util.UtilNumeric.ZERO;
+import static co.edu.uco.crosscutting.util.UtilNumeric.getUtilNumeric;
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
@@ -27,11 +29,11 @@ public class RouteDTO {
 
     public RouteDTO() {
         setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
-        setRouteCapacity(UtilNumeric.ZERO);
+        setRouteCapacity(ZERO);
         setPointOfInterest(PointOfInterestDTO.create());
         setRouteStatus(StatusDTO.create());
         setDriverVehicle(DriverPerVehicleDTO.create());
-        setRouteTime(UtilDate.TIME);
+        setRouteTime(TIME);
     }
 
     public UUID getId() {
@@ -55,7 +57,7 @@ public class RouteDTO {
     }
 
     public void setRouteCapacity(int routeCapacity) {
-        this.routeCapacity = (int) UtilNumeric.getUtilNumeric().getDefault(routeCapacity);
+        this.routeCapacity = (int) getUtilNumeric().getDefaultNumber(routeCapacity);
     }
 
     public PointOfInterestDTO getPointOfInterest() {
@@ -71,7 +73,7 @@ public class RouteDTO {
     }
 
     public void setRouteTime(Time routeTime) {
-        this.routeTime = UtilDate.getUtilDate().getDefaultTime(routeTime, UtilDate.TIME);
+        this.routeTime = getUtilDate().getDefaultTimeIfNull(routeTime);
     }
 
     public StatusDTO getRouteStatus() {

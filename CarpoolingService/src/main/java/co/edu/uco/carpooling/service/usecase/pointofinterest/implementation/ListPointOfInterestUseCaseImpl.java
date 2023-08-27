@@ -22,6 +22,6 @@ public class ListPointOfInterestUseCaseImpl implements ListPointOfInterestUseCas
 
     @Override
     public List<PointOfInterestDTO> execute(Optional<PointOfInterestDTO> dto) {
-        return pointOfInterestRepository.findAll().stream().map(entity -> (PointOfInterestDTO) entityAssembler.assembleDTO(entity)).toList();
+        return pointOfInterestRepository.findAll().stream().map(entity -> entityAssembler.assembleDTO(entity)).toList();
     }
 }

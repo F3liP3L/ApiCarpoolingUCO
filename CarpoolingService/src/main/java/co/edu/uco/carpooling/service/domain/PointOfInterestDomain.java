@@ -1,17 +1,29 @@
 package co.edu.uco.carpooling.service.domain;
 
-import co.edu.uco.carpooling.dto.CityDTO;
-import co.edu.uco.crosscutting.util.UtilText;
+import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
 
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
+
 public class PointOfInterestDomain {
-
     private UUID id;
-    private String pointOfInterestName;
-    private CityDTO city;
+    private String name;
+    private CityDomain city;
 
+    public PointOfInterestDomain(UUID id, String name, CityDomain city) {
+        setId(id);
+        setCity(city);
+        setName(name);
+    }
+
+    public PointOfInterestDomain() {
+        setId(UtilUUID.getUtilUUID().getNewUUID());
+        setName(EMPTY);
+        setCity(CityDomain.build());
+    }
 
     public UUID getId() {
         return id;
@@ -21,18 +33,22 @@ public class PointOfInterestDomain {
         this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
-    public String getPointOfInterestName() {return pointOfInterestName;}
+    public String getName() {return name;}
 
-    public void setPointOfInterestName(String pointOfInterestName) {
-        this.pointOfInterestName = UtilText.getUtilText().trim(pointOfInterestName);
+    public void setName(String name) {
+        this.name = getUtilText().trim(name);
     }
 
-    public CityDTO getCity() {
+    public CityDomain getCity() {
         return city;
     }
 
-    public void setCity(CityDTO city) {
-        this.city = city;
+    public void setCity(CityDomain city) {
+        this.city = UtilObject.getUtilObject().getDefaultIsNull(city, CityDomain.build());
+    }
+
+    public static final PointOfInterestDomain build() {
+        return new PointOfInterestDomain();
     }
 
 }

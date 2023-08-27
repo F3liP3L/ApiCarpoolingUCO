@@ -1,8 +1,9 @@
 package co.edu.uco.carpooling.dto;
 
 import co.edu.uco.crosscutting.util.UtilObject;
-import co.edu.uco.crosscutting.util.UtilText;
 import co.edu.uco.crosscutting.util.UtilUUID;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
 import java.util.UUID;
 
 public class StatusDTO {
@@ -16,7 +17,7 @@ public class StatusDTO {
 
     public StatusDTO() {
         setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
-        setStatus(UtilText.EMPTY);
+        setStatus(EMPTY);
     }
 
     public UUID getId() {
@@ -32,7 +33,7 @@ public class StatusDTO {
     }
 
     public void setStatus(String status) {
-        this.status = UtilText.getUtilText().getDefault(status, UtilText.EMPTY);
+        this.status = getUtilText().getDefault(status, EMPTY);
     }
 
     public static final StatusDTO create() {

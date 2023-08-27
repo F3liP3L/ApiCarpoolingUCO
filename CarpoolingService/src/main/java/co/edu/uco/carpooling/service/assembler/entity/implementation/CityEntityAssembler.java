@@ -3,13 +3,12 @@ package co.edu.uco.carpooling.service.assembler.entity.implementation;
 import co.edu.uco.carpooling.dto.CityDTO;
 import co.edu.uco.carpooling.entity.CityEntity;
 import co.edu.uco.carpooling.service.assembler.entity.EntityAssembler;
-import co.edu.uco.carpooling.service.domain.CityDomain;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 
 @Component
-public class CityEntityAssembler implements EntityAssembler<CityEntity, CityDomain, CityDTO> {
+public class CityEntityAssembler implements EntityAssembler<CityEntity, co.edu.uco.carpooling.service.domain.CityDomain, CityDTO> {
     private final ModelMapper modelMapper;
 
     public CityEntityAssembler() {
@@ -17,12 +16,12 @@ public class CityEntityAssembler implements EntityAssembler<CityEntity, CityDoma
     }
 
     @Override
-    public CityDomain assembleDomain(CityEntity entity) {
-        return modelMapper.map(entity, CityDomain.class);
+    public co.edu.uco.carpooling.service.domain.CityDomain assembleDomain(CityEntity entity) {
+        return modelMapper.map(entity, co.edu.uco.carpooling.service.domain.CityDomain.class);
     }
 
     @Override
-    public CityEntity assembleEntity(CityDomain domain) {
+    public CityEntity assembleEntity(co.edu.uco.carpooling.service.domain.CityDomain domain) {
         return modelMapper.map(domain, CityEntity.class);
     }
     @Override

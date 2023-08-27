@@ -1,12 +1,13 @@
 package co.edu.uco.carpooling.dto;
 
-import co.edu.uco.crosscutting.util.UtilDate;
-import co.edu.uco.crosscutting.util.UtilNumeric;
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.sql.Time;
 import java.util.UUID;
+
+import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
+import static co.edu.uco.crosscutting.util.UtilNumeric.getUtilNumeric;
 
 public class RouteTrackDTO {
     private UUID id;
@@ -15,6 +16,19 @@ public class RouteTrackDTO {
     private Integer latitude;
     private Integer longitude;
     private Time routeCreationTime;
+
+    public RouteTrackDTO(UUID id, RouteDTO route, Time routeTrackTime, Integer latitude, Integer longitude, Time routeCreationTime) {
+        setId(id);
+        setRoute(route);
+        setRouteTrackTime(routeTrackTime);
+        setLatitude(latitude);
+        setLongitude(longitude);
+        setRouteCreationTime(routeCreationTime);
+    }
+
+    public RouteTrackDTO() {
+        setId(UtilUUID.getUtilUUID().getNewUUID());
+    }
 
     public UUID getId() {
         return id;
@@ -37,7 +51,7 @@ public class RouteTrackDTO {
     }
 
     public void setRouteTrackTime(Time routeTrackTime) {
-        this.routeTrackTime = UtilDate.getUtilDate().getDefaultTimeIfNull(routeTrackTime);
+        this.routeTrackTime = getUtilDate().getDefaultTimeIfNull(routeTrackTime);
     }
 
     public Integer getLatitude() {
@@ -45,7 +59,7 @@ public class RouteTrackDTO {
     }
 
     public void setLatitude(Integer latitude) {
-        this.latitude = (Integer) UtilNumeric.getUtilNumeric().getDefault(latitude);
+        this.latitude = (Integer) getUtilNumeric().getDefaultNumber(latitude);
     }
 
     public Integer getLongitude() {
@@ -53,7 +67,7 @@ public class RouteTrackDTO {
     }
 
     public void setLongitude(Integer longitude) {
-        this.longitude = (Integer) UtilNumeric.getUtilNumeric().getDefault(longitude);
+        this.longitude = (Integer) getUtilNumeric().getDefaultNumber(longitude);
     }
 
     public Time getRouteCreationTime() {
@@ -61,6 +75,6 @@ public class RouteTrackDTO {
     }
 
     public void setRouteCreationTime(Time routeCreationTime) {
-        this.routeCreationTime = UtilDate.getUtilDate().getDefaultTimeIfNull(routeCreationTime);
+        this.routeCreationTime = getUtilDate().getDefaultTimeIfNull(routeCreationTime);
     }
 }

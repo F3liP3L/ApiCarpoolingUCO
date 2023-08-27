@@ -1,9 +1,11 @@
 package co.edu.uco.carpooling.service.domain;
 
-import co.edu.uco.crosscutting.util.UtilText;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
+
+import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
+import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
 
 public class CustomerDomain {
     private UUID id;
@@ -12,9 +14,23 @@ public class CustomerDomain {
     private String mailEntity;
     private String documentIdentity;
 
-    public UUID getId() {
-        return id;
+    public CustomerDomain(UUID id, String name, String password, String mailEntity, String documentIdentity) {
+        setId(id);
+        setName(name);
+        setPassword(password);
+        setMailEntity(mailEntity);
+        setDocumentIdentity(documentIdentity);
     }
+
+    public CustomerDomain() {
+        setId(UtilUUID.getUtilUUID().getNewUUID());
+        setName(EMPTY);
+        setPassword(EMPTY);
+        setMailEntity(EMPTY);
+        setDocumentIdentity(EMPTY);
+    }
+
+    public UUID getId() { return id; }
 
     public void setId(UUID id) {
         this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
@@ -25,7 +41,7 @@ public class CustomerDomain {
     }
 
     public void setName(String name) {
-        this.name = UtilText.getUtilText().getDefault(name);
+        this.name = getUtilText().getDefault(name);
     }
 
     public String getPassword() {
@@ -33,7 +49,7 @@ public class CustomerDomain {
     }
 
     public void setPassword(String password) {
-        this.password = UtilText.getUtilText().getDefault(password);
+        this.password = getUtilText().getDefault(password);
     }
 
     public String getMailEntity() {
@@ -41,7 +57,7 @@ public class CustomerDomain {
     }
 
     public void setMailEntity(String mailEntity) {
-        this.mailEntity = UtilText.getUtilText().getDefault(mailEntity);
+        this.mailEntity = getUtilText().getDefault(mailEntity);
     }
 
     public String getDocumentIdentity() {
@@ -49,6 +65,6 @@ public class CustomerDomain {
     }
 
     public void setDocumentIdentity(String documentIdentity) {
-        this.documentIdentity = UtilText.getUtilText().getDefault(documentIdentity);
+        this.documentIdentity = getUtilText().getDefault(documentIdentity);
     }
 }
