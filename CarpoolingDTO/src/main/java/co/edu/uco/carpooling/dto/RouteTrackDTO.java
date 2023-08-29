@@ -3,7 +3,7 @@ package co.edu.uco.carpooling.dto;
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
-import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
@@ -12,12 +12,12 @@ import static co.edu.uco.crosscutting.util.UtilNumeric.getUtilNumeric;
 public class RouteTrackDTO {
     private UUID id;
     private RouteDTO route;
-    private Time routeTrackTime;
+    private LocalDateTime routeTrackTime;
     private Integer latitude;
     private Integer longitude;
-    private Time routeCreationTime;
+    private LocalDateTime routeCreationTime;
 
-    public RouteTrackDTO(UUID id, RouteDTO route, Time routeTrackTime, Integer latitude, Integer longitude, Time routeCreationTime) {
+    public RouteTrackDTO(UUID id, RouteDTO route, LocalDateTime routeTrackTime, Integer latitude, Integer longitude, LocalDateTime routeCreationTime) {
         setId(id);
         setRoute(route);
         setRouteTrackTime(routeTrackTime);
@@ -46,11 +46,11 @@ public class RouteTrackDTO {
         this.route = UtilObject.getUtilObject().getDefaultIsNull(route, RouteDTO.create());
     }
 
-    public Time getRouteTrackTime() {
+    public LocalDateTime getRouteTrackTime() {
         return routeTrackTime;
     }
 
-    public void setRouteTrackTime(Time routeTrackTime) {
+    public void setRouteTrackTime(LocalDateTime routeTrackTime) {
         this.routeTrackTime = getUtilDate().getDefaultTimeIfNull(routeTrackTime);
     }
 
@@ -70,11 +70,11 @@ public class RouteTrackDTO {
         this.longitude = (Integer) getUtilNumeric().getDefaultNumber(longitude);
     }
 
-    public Time getRouteCreationTime() {
+    public LocalDateTime getRouteCreationTime() {
         return routeCreationTime;
     }
 
-    public void setRouteCreationTime(Time routeCreationTime) {
+    public void setRouteCreationTime(LocalDateTime routeCreationTime) {
         this.routeCreationTime = getUtilDate().getDefaultTimeIfNull(routeCreationTime);
     }
 }

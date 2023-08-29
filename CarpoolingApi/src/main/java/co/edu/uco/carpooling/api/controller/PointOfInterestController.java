@@ -19,16 +19,8 @@ public class PointOfInterestController {
     @Autowired
     private ListPointOfInterestUseCase listPointOfInterestUseCase;
 
-    @Autowired
-    private ListCityUseCase listCityUseCase;
-
     @GetMapping()
     public List<PointOfInterestDTO> getPointOfInterest(){
         return listPointOfInterestUseCase.execute(Optional.of(PointOfInterestDTO.create()));
-    }
-
-    @GetMapping("/citys")
-    public List<CityDTO> getCities() {
-        return listCityUseCase.execute(Optional.of(CityDTO.create()));
     }
 }

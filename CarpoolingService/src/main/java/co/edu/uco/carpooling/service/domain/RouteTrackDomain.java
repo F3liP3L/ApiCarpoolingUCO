@@ -4,7 +4,7 @@ import co.edu.uco.carpooling.dto.RouteDTO;
 import co.edu.uco.crosscutting.util.UtilNumeric;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
-import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
@@ -14,12 +14,12 @@ import static co.edu.uco.crosscutting.util.UtilNumeric.ZERO;
 public class RouteTrackDomain {
     private UUID id;
     private RouteDTO route;
-    private Time routeTrackTime;
+    private LocalDateTime routeTrackTime;
     private int latitude;
     private int longitude;
-    private Time routeCreationTime;
+    private LocalDateTime routeCreationTime;
 
-    public RouteTrackDomain(UUID id, RouteDTO route, Time routeTrackTime, int latitude, int longitude, Time routeCreationTime) {
+    public RouteTrackDomain(UUID id, RouteDTO route, LocalDateTime routeTrackTime, int latitude, int longitude, LocalDateTime routeCreationTime) {
         setId(id);
         setRoute(route);
         setRouteTrackTime(routeTrackTime);
@@ -44,11 +44,11 @@ public class RouteTrackDomain {
         this.route = route;
     }
 
-    public Time getRouteTrackTime() {
+    public LocalDateTime getRouteTrackTime() {
         return routeTrackTime;
     }
 
-    public void setRouteTrackTime(final Time routeTrackTime) {
+    public void setRouteTrackTime(final LocalDateTime routeTrackTime) {
         this.routeTrackTime = getUtilDate().getDefaultTimeIfNull(routeTrackTime);
     }
 
@@ -68,8 +68,8 @@ public class RouteTrackDomain {
                 .isLessThan(longitude , ZERO) ? ZERO : longitude;
     }
 
-    public Time getRouteCreationTime() { return routeCreationTime; }
-    public void setRouteCreationTime(final Time routeCreationTime) {
+    public LocalDateTime getRouteCreationTime() { return routeCreationTime; }
+    public void setRouteCreationTime(final LocalDateTime routeCreationTime) {
         this.routeCreationTime = getUtilDate().getDefaultTimeIfNull(routeCreationTime);
     }
 
