@@ -1,5 +1,6 @@
 package co.edu.uco.carpooling.service.specification.implementation.route;
 
+import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
 import co.edu.uco.carpooling.service.specification.CompositeSpecification;
 import org.springframework.beans.factory.annotation.Autowired;

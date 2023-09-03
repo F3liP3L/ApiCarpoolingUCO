@@ -13,7 +13,6 @@ import java.util.List;
 
 @Component
 public class RouteExistDriverVehicleRouteActive extends CompositeSpecification<RouteDomain> {
-
     private static final String STATUS = "1874d41f-c258-46be-96bf-8a55a564804e";
     @Autowired
     private RouteRepositoryPostgresSQL routeRepository;
@@ -25,12 +24,11 @@ public class RouteExistDriverVehicleRouteActive extends CompositeSpecification<R
     // TODO Revisar la query
     private boolean isExist(RouteDomain route) {
         try {
-        List<RouteEntity> responses = routeRepository.findRouteEntitiesByDriverVehicleIdAndRouteStatusId(route.getDriverVehicle().getId(), UtilUUID.getStringToUUID(STATUS));
-        responses.forEach(routeEntity -> System.out.println(routeEntity.toString()));
-        if(responses.isEmpty()) {
-            throw CarpoolingCustomException.buildUserException("It is not possible to create another route until the current route is finished.");
-        }
-        return true;
+            List<RouteEntity> responses = routeRepository.findByDriverAndStatus(route.getDriverVehicle().getId(), UtilUUID.getStringToUUID(STATUS));
+            if(!responses.isEmpty()) {
+                throw CarpoolingCustomException.buildUserException("It is not possible to create another route until the current route is finished.");
+            }
+            return true;
         } catch (CarpoolingCustomException exception) {
             throw exception;
         } catch (Exception exception) {
