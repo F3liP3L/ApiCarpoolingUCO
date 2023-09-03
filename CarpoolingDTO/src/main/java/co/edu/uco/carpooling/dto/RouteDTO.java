@@ -29,11 +29,11 @@ public class RouteDTO {
     }
 
     public RouteDTO() {
-        setId(UtilUUID.getUtilUUID().getDefaultUUID(id));
-        setRouteCapacity(ZERO);
+        setId(UtilUUID.getUtilUUID().getDefaultUUIDIsEmpty(id));
         setPointOfInterest(PointOfInterestDTO.create());
         setRouteStatus(StatusDTO.create());
         setDriverVehicle(DriverPerVehicleDTO.create());
+        setRouteCapacity(ZERO);
         setRouteTime(TIME);
     }
 
@@ -42,7 +42,7 @@ public class RouteDTO {
     }
 
     public void setId(UUID id) {
-        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.getUtilUUID().getNewUUID());
+        this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
     public DriverPerVehicleDTO getDriverVehicle() {

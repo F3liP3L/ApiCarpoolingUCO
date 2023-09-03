@@ -5,7 +5,6 @@ import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
 
-import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
 import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
 
 public class PointOfInterestDomain {
@@ -20,9 +19,7 @@ public class PointOfInterestDomain {
     }
 
     public PointOfInterestDomain() {
-        setId(UtilUUID.getUtilUUID().getNewUUID());
-        setName(EMPTY);
-        setCity(CityDomain.build());
+        super();
     }
 
     public UUID getId() {

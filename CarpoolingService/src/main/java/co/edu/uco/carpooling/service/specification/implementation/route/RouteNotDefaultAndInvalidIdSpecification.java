@@ -12,12 +12,16 @@ import org.springframework.stereotype.Component;
 public class RouteNotDefaultAndInvalidIdSpecification extends CompositeSpecification<RouteDomain> {
     @Override
     public boolean isSatisfyBy(RouteDomain object) {
-        return isValid(object);
+        try {
+            return isValid(object);
+        } catch (CarpoolingCustomException exception) {
+            throw exception;
+        }
     }
 
     private boolean isValid(RouteDomain route) {
         if (UtilNumeric.getUtilNumeric().isEqualThan(route.getRouteCapacity(), UtilNumeric.ZERO)) {
-            throw CarpoolingCustomException.buildUserException("The capacity the route no has 0");
+            throw CarpoolingCustomException.buildUserException("The capacity the route no has 0, pd: no pueden haber 0 cupos hermano cojela suave!!");
         }
         if (UtilText.getUtilText().isEmpty(route.getPointOfInterest().getName())) {
             throw CarpoolingCustomException.buildUserException("The PointOfInterest not has register");

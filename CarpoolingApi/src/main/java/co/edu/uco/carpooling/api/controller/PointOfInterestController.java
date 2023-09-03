@@ -1,8 +1,6 @@
 package co.edu.uco.carpooling.api.controller;
 
-import co.edu.uco.carpooling.dto.CityDTO;
 import co.edu.uco.carpooling.dto.PointOfInterestDTO;
-import co.edu.uco.carpooling.service.usecase.city.ListCityUseCase;
 import co.edu.uco.carpooling.service.usecase.pointofinterest.ListPointOfInterestUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

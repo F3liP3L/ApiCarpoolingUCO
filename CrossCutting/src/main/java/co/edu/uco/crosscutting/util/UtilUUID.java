@@ -19,6 +19,9 @@ public class UtilUUID {
     public final UUID getDefaultUUID(final UUID uuid) {
         return getUtilObject().getDefaultIsNull(uuid, DEFAULT_UUID);
     }
+    public final UUID getDefaultUUIDIsEmpty(final UUID uuid) {
+        return getUtilObject().getDefaultIsNull(uuid, getNewUUID());
+    }
 
     public final boolean isEqual(final UUID uuidOne, final UUID uuidTwo) {
         return getDefaultUUID(uuidOne).equals(getDefaultUUID(uuidTwo));

@@ -2,10 +2,12 @@ package co.edu.uco.carpooling.api.response;
 
 import co.edu.uco.carpooling.api.response.dto.Message;
 import co.edu.uco.crosscutting.util.UtilObject;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@ToString
 public class Response<D> {
     private List<D> data;
     private List<Message> message;
@@ -44,5 +46,6 @@ public class Response<D> {
     public void setMessage(List<Message> messages) {
         this.message = UtilObject.getUtilObject().getDefaultIsNull(messages, new ArrayList<>());
     }
+
 
 }

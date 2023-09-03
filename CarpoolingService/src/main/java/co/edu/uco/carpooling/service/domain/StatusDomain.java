@@ -17,8 +17,7 @@ public class StatusDomain {
     }
 
     public StatusDomain() {
-        setId(UtilUUID.getUtilUUID().getNewUUID());
-        setStatus(EMPTY);
+        super();
     }
 
     public UUID getId() {

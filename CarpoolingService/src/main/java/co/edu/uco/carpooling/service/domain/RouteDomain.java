@@ -13,15 +13,15 @@ import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
 
 public class RouteDomain {
     private UUID id;
+    private DriverPerVehicleDomain driverVehicle;
     private int routeCapacity;
     private PointOfInterestDomain pointOfInterest;
     private LocalDateTime routeTime;
-    private DriverPerVehicleDomain driverPerVehicle;
     private StatusDomain routeStatus;
 
-    public RouteDomain(UUID id, DriverPerVehicleDomain driverPerVehicle, int routeCapacity, PointOfInterestDomain pointOfInterest, LocalDateTime routeTime, StatusDomain routeStatus) {
+    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, PointOfInterestDomain pointOfInterest, LocalDateTime routeTime, StatusDomain routeStatus) {
         setId(id);
-        setDriverPerVehicle(driverPerVehicle);
+        setDriverVehicle(driverVehicle);
         setRouteCapacity(routeCapacity);
         setRouteStatus(routeStatus);
         setPointOfInterest(pointOfInterest);
@@ -33,7 +33,7 @@ public class RouteDomain {
         setRouteCapacity(ZERO);
         setPointOfInterest(PointOfInterestDomain.build());
         setRouteStatus(StatusDomain.build());
-        setDriverPerVehicle(DriverPerVehicleDomain.build());
+        setDriverVehicle(DriverPerVehicleDomain.build());
         setRouteTime(TIME);
     }
 
@@ -70,12 +70,12 @@ public class RouteDomain {
         this.routeTime = getUtilDate().getDefaultTimeIfNull(routeTime);
     }
 
-    public DriverPerVehicleDomain getDriverPerVehicle() {
-        return driverPerVehicle;
+    public DriverPerVehicleDomain getDriverVehicle() {
+        return driverVehicle;
     }
 
-    public void setDriverPerVehicle(DriverPerVehicleDomain driverPerVehicle) {
-        this.driverPerVehicle = getUtilObject().getDefaultIsNull(driverPerVehicle, DriverPerVehicleDomain.build());
+    public void setDriverVehicle(DriverPerVehicleDomain driverVehicle) {
+        this.driverVehicle = getUtilObject().getDefaultIsNull(driverVehicle, DriverPerVehicleDomain.build());
     }
 
     public StatusDomain getRouteStatus() {

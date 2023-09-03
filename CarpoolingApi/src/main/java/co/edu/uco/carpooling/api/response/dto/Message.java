@@ -3,7 +3,9 @@ package co.edu.uco.carpooling.api.response.dto;
 import co.edu.uco.carpooling.api.response.enumeration.MessageLevel;
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilText;
+import lombok.ToString;
 
+@ToString
 public class Message {
     private String text;
     private String title;

@@ -18,6 +18,7 @@ public class RouteEntity {
     @Id
     private UUID id;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private DriverPerVehicleEntity driverVehicle;
     private int routeCapacity;
     @ManyToOne

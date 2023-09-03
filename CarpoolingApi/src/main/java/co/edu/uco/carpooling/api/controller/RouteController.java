@@ -7,6 +7,7 @@ import co.edu.uco.carpooling.dto.RouteDTO;
 import co.edu.uco.carpooling.service.facade.route.RegisterRouteUseCaseFacade;
 import co.edu.uco.crosscutting.exception.GeneralException;
 import co.edu.uco.crosscutting.util.UtilObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +21,10 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("api/v1/carpooling/route")
+@Slf4j
 public class RouteController {
     @Autowired
     private RegisterRouteUseCaseFacade facade;
-
     @PostMapping()
     public ResponseEntity<Response<RouteDTO>> create(@RequestBody RouteDTO route){
         Response<RouteDTO> response = new Response<>();
@@ -34,19 +35,23 @@ public class RouteController {
             facade.execute(route);
             response.addData(route);
             response.addMessage(Message.createSuccessMessage("La ruta ha sido registrada con total exito", "registro de ruta exitoso"));
+            log.info(response.toString());
+
         } catch (CarpoolingCustomException exception) {
             httpStatus = HttpStatus.BAD_REQUEST;
+            response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error Created a Route"));
             if (!UtilObject.getUtilObject().isNull(exception.getTechnicalMessage())
                     && !Objects.equals(exception.getTechnicalMessage(), exception.getUserMessage())) {
-                response.addMessage(Message.createErrorMessage(exception.getTechnicalMessage(),"Technical Message"));
+                response.addMessage(Message.createErrorMessage("exception.getTechnicalMessage(),","Technical Message"));
             }
+            log.warn(response.toString());
 
         } catch (GeneralException exception) {
             httpStatus = HttpStatus.BAD_REQUEST;
-            response.addMessage(Message.createFatalMessage(exception.getUserMessage(), ""));
-
+            response.addMessage(Message.createFatalMessage(exception.getUserMessage(), "The Unexpected errors "));
+            log.warn(response.toString());
         }
-        responseEntity = new ResponseEntity<Response<RouteDTO>>(response, httpStatus);
+        responseEntity = new ResponseEntity<>(response, httpStatus);
         return responseEntity;
     }
 

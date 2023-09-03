@@ -19,9 +19,7 @@ public class DriverPerVehicleDomain {
     }
 
     public DriverPerVehicleDomain() {
-        setId(UtilUUID.getUtilUUID().getNewUUID());
-        setName(EMPTY);
-        setNameVehicle(EMPTY);
+        super();
     }
 
     public DriverPerVehicleDomain(UUID id, String name, String nameVehicle) {
@@ -31,7 +29,7 @@ public class DriverPerVehicleDomain {
     }
 
     public void setId(UUID id) {
-        this.id = UtilObject.getUtilObject().getDefaultIsNull(id, UtilUUID.getUtilUUID().getNewUUID());
+        this.id = UtilUUID.getUtilUUID().getDefaultUUID(id);
     }
 
     public String getName() {
