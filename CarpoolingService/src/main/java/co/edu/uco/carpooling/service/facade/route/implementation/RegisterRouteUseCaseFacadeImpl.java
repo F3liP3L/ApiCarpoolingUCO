@@ -29,7 +29,5 @@ public class RegisterRouteUseCaseFacadeImpl implements RegisterRouteUseCaseFacad
         } catch (Exception exception) {
             throw exception;
         }
-
-
     }
 }

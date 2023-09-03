@@ -37,6 +37,14 @@ public class UtilDate {
         return (date.after(init) && date.before(end));
     }
 
+    public boolean isBefore(Date compare, Date date) {
+        return compare.before(date);
+    }
+
+    public boolean isBefore(Date compare) {
+        return compare.before(getLocalDataTimeADate(TIME));
+    }
+
     public boolean isBetweenIncludingInit(Date date, Date init, Date end) {
         return (isBetween(date, init, end) || date.equals(init));
     }

@@ -8,12 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class ValidRouteSpecification extends CompositeSpecification<RouteDomain> {
     @Autowired
-    private RouteNotDefaultAndInvalidIdSpecification notDefaultAndInvalid;
+    private RouteNotDefaultSpecification notDefaultSpecification;
     @Autowired
-    private RouteNotExistSpecification notExistSpecification;
+    private RouteNotInvalidSpecification notInvalidSpecification;
+    @Autowired
+    private RouteExistIdSpecification existByIdSpecification;
+
+    @Autowired
+    private RouteExistDriverVehicleRouteActive driverVehicleRouteActiveSpecification;
 
     @Override
     public boolean isSatisfyBy(RouteDomain object) {
-        return notDefaultAndInvalid.and(notExistSpecification).isSatisfyBy(object);
+        return notDefaultSpecification.and(notInvalidSpecification).andNot(existByIdSpecification).and(driverVehicleRouteActiveSpecification).isSatisfyBy(object);
     }
 }

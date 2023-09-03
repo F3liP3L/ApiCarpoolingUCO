@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
+
 @RestController
 @RequestMapping("api/v1/carpooling/route")
 @Slf4j
@@ -40,9 +42,9 @@ public class RouteController {
         } catch (CarpoolingCustomException exception) {
             httpStatus = HttpStatus.BAD_REQUEST;
             response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error Created a Route"));
-            if (!UtilObject.getUtilObject().isNull(exception.getTechnicalMessage())
+            if (!getUtilObject().isNull(exception.getTechnicalMessage())
                     && !Objects.equals(exception.getTechnicalMessage(), exception.getUserMessage())) {
-                response.addMessage(Message.createErrorMessage("exception.getTechnicalMessage(),","Technical Message"));
+                response.addMessage(Message.createErrorMessage(exception.getTechnicalMessage(), "Technical Message"));
             }
             log.warn(response.toString());
 
