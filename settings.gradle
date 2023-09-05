@@ -1,4 +1,4 @@
-rootProject.name = 'ApiCarpoolingUco'
+rootProject.name = 'ProcessorCarpoolingUCO'
 
 include 'CarpoolingApi'
 include 'CrossCutting'

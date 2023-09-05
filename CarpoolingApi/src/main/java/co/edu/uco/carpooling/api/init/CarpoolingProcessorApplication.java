@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {"co.edu.uco.carpooling"})
 @EntityScan(basePackages = {"co.edu.uco.carpooling"})
 @EnableJpaRepositories(basePackages = {"co.edu.uco.carpooling"})
-public class CarpoolingApiApplication {
+public class CarpoolingProcessorApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(CarpoolingApiApplication.class, args);
+		SpringApplication.run(CarpoolingProcessorApplication.class, args);
 	}
 
 }
