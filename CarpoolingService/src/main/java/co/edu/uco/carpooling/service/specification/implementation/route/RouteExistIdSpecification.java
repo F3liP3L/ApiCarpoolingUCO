@@ -1,11 +1,9 @@
 package co.edu.uco.carpooling.service.specification.implementation.route;
 
 import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
-import co.edu.uco.carpooling.entity.DriverPerVehicleEntity;
 import co.edu.uco.carpooling.entity.RouteEntity;
-import co.edu.uco.carpooling.infrastructure.adapter.repository.postgressql.DriverPerVehiclePostgresSQL;
-import co.edu.uco.carpooling.infrastructure.adapter.repository.postgressql.RouteRepositoryPostgresSQL;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
+import co.edu.uco.carpooling.service.port.repository.RouteRepository;
 import co.edu.uco.carpooling.service.specification.CompositeSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +15,7 @@ import java.util.Optional;
 @Slf4j
 public class RouteExistIdSpecification extends CompositeSpecification<RouteDomain> {
     @Autowired
-    private RouteRepositoryPostgresSQL routeRepository;
-
+    private RouteRepository routeRepository;
 
     @Override
     public boolean isSatisfyBy(RouteDomain object) {

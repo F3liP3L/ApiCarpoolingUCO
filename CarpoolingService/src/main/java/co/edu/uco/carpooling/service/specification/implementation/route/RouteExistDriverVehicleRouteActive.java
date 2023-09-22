@@ -2,8 +2,8 @@ package co.edu.uco.carpooling.service.specification.implementation.route;
 
 import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.entity.RouteEntity;
-import co.edu.uco.carpooling.infrastructure.adapter.repository.postgressql.RouteRepositoryPostgresSQL;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
+import co.edu.uco.carpooling.service.port.repository.RouteRepository;
 import co.edu.uco.carpooling.service.specification.CompositeSpecification;
 import co.edu.uco.crosscutting.util.UtilUUID;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 public class RouteExistDriverVehicleRouteActive extends CompositeSpecification<RouteDomain> {
     private static final String STATUS = "1874d41f-c258-46be-96bf-8a55a564804e";
     @Autowired
-    private RouteRepositoryPostgresSQL routeRepository;
+    private RouteRepository routeRepository;
     @Override
     public boolean isSatisfyBy(RouteDomain object) {
         return isExist(object);
@@ -24,7 +24,7 @@ public class RouteExistDriverVehicleRouteActive extends CompositeSpecification<R
     // TODO Revisar la query
     private boolean isExist(RouteDomain route) {
         try {
-            List<RouteEntity> responses = routeRepository.findByDriverAndStatus(route.getDriverVehicle().getId(), UtilUUID.getStringToUUID(STATUS));
+            List<RouteEntity> responses = routeRepository.findByDriverVehicleIdAndRouteStatusId(route.getDriverVehicle().getId(), UtilUUID.getStringToUUID(STATUS));
             if(!responses.isEmpty()) {
                 throw CarpoolingCustomException.buildUserException("It is not possible to create another route until the current route is finished.");
             }

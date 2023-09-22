@@ -19,7 +19,6 @@ dependencies {
     implementation project(':CarpoolingCrossCutting')
     implementation project(':CrossCutting')
     implementation project(':CarpoolingDTO')
-    implementation project(':CarpoolingInfrastructure')
     implementation project(':CarpoolingEntity')
 
 }

@@ -11,7 +11,6 @@ import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
 
 @Component
 public class RouteNotInvalidSpecification extends CompositeSpecification<RouteDomain> {
-
     private static final Integer CAPACITY_MIN = 1;
     private static final Integer CAPACITY_MAX = 4;
 

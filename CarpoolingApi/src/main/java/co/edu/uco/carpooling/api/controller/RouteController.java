@@ -6,7 +6,6 @@ import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.dto.RouteDTO;
 import co.edu.uco.carpooling.service.facade.route.RegisterRouteUseCaseFacade;
 import co.edu.uco.crosscutting.exception.GeneralException;
-import co.edu.uco.crosscutting.util.UtilObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

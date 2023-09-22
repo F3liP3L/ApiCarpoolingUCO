@@ -3,9 +3,9 @@ package co.edu.uco.carpooling.service.usecase.status.implementation;
 import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.dto.StatusDTO;
 import co.edu.uco.carpooling.entity.StatusEntity;
-import co.edu.uco.carpooling.infrastructure.adapter.repository.postgressql.StatusRepositoryPostgresSQL;
 import co.edu.uco.carpooling.service.assembler.entity.EntityAssembler;
 import co.edu.uco.carpooling.service.domain.StatusDomain;
+import co.edu.uco.carpooling.service.port.repository.StatusRepository;
 import co.edu.uco.carpooling.service.usecase.status.FillStatusUseCase;
 import co.edu.uco.crosscutting.exception.GeneralException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @Service
 public class FillStatusUseCaseImpl implements FillStatusUseCase {
     @Autowired
-    private StatusRepositoryPostgresSQL statusRepository;
+    private StatusRepository statusRepository;
     @Autowired
     private EntityAssembler<StatusEntity, StatusDomain, StatusDTO> entityAssembler;
 
