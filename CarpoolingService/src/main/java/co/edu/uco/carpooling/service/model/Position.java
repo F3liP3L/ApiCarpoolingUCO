@@ -17,7 +17,7 @@ public class Position {
     }
 
     public void setLatitude(String latitude) {
-        this.latitude = latitude;
+        this.latitude = UtilText.getUtilText().trim(latitude);
     }
 
     public String getLongitude() {
@@ -25,7 +25,7 @@ public class Position {
     }
 
     public void setLongitude(String longitude) {
-        this.longitude = longitude;
+        this.longitude = UtilText.getUtilText().trim(longitude);
     }
 
     public String getAltitude() {

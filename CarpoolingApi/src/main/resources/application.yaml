@@ -16,5 +16,4 @@ spring:
 google:
   maps:
     api:
-      key: AIzaSyA1WgPdgxg5_s-CpxU1109fmVlRvx9JCaU
-
+      key: 7u7

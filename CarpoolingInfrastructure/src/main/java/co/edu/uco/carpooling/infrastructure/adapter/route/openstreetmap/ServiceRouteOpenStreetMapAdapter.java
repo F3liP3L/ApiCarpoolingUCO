@@ -14,7 +14,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
+public class ServiceRouteOpenStreetMapAdapter  {
+    /*
     @Autowired
     private POIServiceClient serviceClient;
     @Autowired
@@ -74,5 +75,5 @@ public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
             System.out.println("Nombre: " + name);
             System.out.println("------------------------");
         }
-    }
+    }*/
 }
