@@ -1,10 +1,10 @@
 package co.edu.uco.carpooling.crosscutting.util;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-@Service
+@Component
 public class UtilMapperJsonObjectJackson implements MapperJsonObject {
 
     @Override

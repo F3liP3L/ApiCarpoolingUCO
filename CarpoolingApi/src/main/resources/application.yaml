@@ -8,3 +8,13 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: carpooling2023_
+google:
+  maps:
+    api:
+      key: AIzaSyA1WgPdgxg5_s-CpxU1109fmVlRvx9JCaU
+
