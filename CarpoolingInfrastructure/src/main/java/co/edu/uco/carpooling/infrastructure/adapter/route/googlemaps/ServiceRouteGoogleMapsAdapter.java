@@ -7,7 +7,6 @@ import co.edu.uco.carpooling.service.domain.PositionDomain;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
 import co.edu.uco.carpooling.service.model.Position;
 import co.edu.uco.carpooling.service.port.route.ServiceRoutePort;
-import co.edu.uco.crosscutting.util.UtilObject;
 import com.google.maps.DirectionsApi;
 import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
@@ -26,19 +25,19 @@ import java.util.List;
 public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
     @Autowired
     private GeoApiContext geoApiContext;
-
     @Override
     public RouteDomain buildRoute(Position origin, Position destination) {
         String init = "6.153509802279989, -75.37388989242287";
         String pointFinal = "6.146729079858681, -75.37273744017664";
         String positionOrigin = String.format("%s,%s", origin.getLatitude(), origin.getLongitude());
-        return buildRouteService(init, pointFinal);
+        String positionDestination = String.format("%s,%s", destination.getLatitude(), destination.getLongitude());
+        return buildRouteService(positionOrigin, positionDestination);
     }
 
     private RouteDomain buildRouteService(String init, String destination) {
         RouteDomain route = new RouteDomain();
         try {
-            DirectionsResult    result = DirectionsApi.newRequest(geoApiContext)
+            DirectionsResult result = DirectionsApi.newRequest(geoApiContext)
                     .mode(TravelMode.DRIVING) // Configura que solo aplique para vehiculos.
                     .origin(init)
                     .destination(destination)

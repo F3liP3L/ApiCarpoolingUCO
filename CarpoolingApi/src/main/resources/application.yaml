@@ -13,6 +13,12 @@ spring:
     port: 5672
     username: admin
     password: carpooling2023_
+carpooling:
+    queue:
+      save-route: route.queue.save
+      routing-key: route.queue.rk
+    exchange:
+      route: route.ex
 google:
   maps:
     api:
