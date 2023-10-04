@@ -13,10 +13,15 @@ spring:
     port: 5672
     username: admin
     password: carpooling2023_
-carpooling:
+server:
+  port: 8081
+processor:
     queue:
-      save-route: route.queue.save
-      routing-key: route.queue.rk
+      route:
+        request: route.request-route.qu
+        request-routing-key: request-route.rk
+        response-create: route.response-route.created.qu
+        create-routing-key: response-route.created.rk
     exchange:
       route: route.ex
 google:

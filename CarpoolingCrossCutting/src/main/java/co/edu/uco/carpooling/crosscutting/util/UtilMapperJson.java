@@ -2,6 +2,7 @@ package co.edu.uco.carpooling.crosscutting.util;
 
 import co.edu.uco.crosscutting.exception.GeneralException;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,10 +14,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Component
-public class UtilMapperJsonObjectJackson implements MapperJsonObject {
-    private final ObjectMapper mapper;
-    public UtilMapperJsonObjectJackson() {
-        this.mapper = new ObjectMapper();
+public class UtilMapperJson implements MapperJsonObject {
+    private final ObjectMapper mapper = new ObjectMapper();
+    public UtilMapperJson() {
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
     @Override

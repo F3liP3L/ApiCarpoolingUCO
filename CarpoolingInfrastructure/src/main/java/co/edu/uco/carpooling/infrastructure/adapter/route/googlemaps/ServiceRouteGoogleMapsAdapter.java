@@ -12,7 +12,6 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.PlacesApi;
 import com.google.maps.errors.ApiException;
 import com.google.maps.model.*;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Slf4j
 public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
     @Autowired
     private GeoApiContext geoApiContext;
     @Override
     public RouteDomain buildRoute(Position origin, Position destination) {
-        String init = "6.153509802279989, -75.37388989242287";
-        String pointFinal = "6.146729079858681, -75.37273744017664";
         String positionOrigin = String.format("%s,%s", origin.getLatitude(), origin.getLongitude());
         String positionDestination = String.format("%s,%s", destination.getLatitude(), destination.getLongitude());
         return buildRouteService(positionOrigin, positionDestination);
@@ -38,7 +34,7 @@ public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
         RouteDomain route = new RouteDomain();
         try {
             DirectionsResult result = DirectionsApi.newRequest(geoApiContext)
-                    .mode(TravelMode.DRIVING) // Configura que solo aplique para vehiculos.
+                    .mode(TravelMode.DRIVING)
                     .origin(init)
                     .destination(destination)
                     .await();
@@ -52,7 +48,6 @@ public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
             }
 
             List<RouteSegment> routeSegments = new ArrayList<>();
-            route.getPositions().forEach(pos -> log.info(pos.getLatitude().concat(pos.getLongitude())));
 
             for (DirectionsStep step : result.routes[0].legs[0].steps) {
                 List<LatLng> stepCoordinates = step.polyline.decodePath();

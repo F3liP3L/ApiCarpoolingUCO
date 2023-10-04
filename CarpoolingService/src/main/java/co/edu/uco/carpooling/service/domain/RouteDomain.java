@@ -107,4 +107,17 @@ public class RouteDomain {
     public static final RouteDomain build(final UUID id, final DriverPerVehicleDomain driverPerVehicle, final int routeCapacity, final List<PointOfInterestDomain> pointOfInterest, final LocalDateTime routeTime, final StatusDomain routeStatus) {
         return new RouteDomain(id,driverPerVehicle,routeCapacity,pointOfInterest,routeTime,routeStatus);
     }
+
+    @Override
+    public String toString() {
+        return "RouteDomain{" +
+                "id=" + id +
+                ", driverVehicle=" + driverVehicle +
+                ", routeCapacity=" + routeCapacity +
+                ", positions=" + positions +
+                ", pointOfInterest=" + pointOfInterest +
+                ", routeTime=" + routeTime +
+                ", routeStatus=" + routeStatus +
+                '}';
+    }
 }

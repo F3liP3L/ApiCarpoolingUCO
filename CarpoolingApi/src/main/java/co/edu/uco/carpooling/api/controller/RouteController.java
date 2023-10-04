@@ -29,10 +29,8 @@ public class RouteController {
     private RegisterRouteUseCaseFacade facade;
     @Autowired
     private ServiceRoutePort routePort;
-
     @Autowired
     private DTOAssembler<RouteDomain, RouteDTO> dtoAssembler;
-
     @PostMapping()
     public ResponseEntity<Response<RouteDTO>> create(@RequestBody RouteDTO route){
         Response<RouteDTO> response = new Response<>();
@@ -44,7 +42,6 @@ public class RouteController {
             response.addData(route);
             response.addMessage(Message.createSuccessMessage("La ruta ha sido registrada con total exito", "registro de ruta exitoso"));
             log.info(response.toString());
-
         } catch (CarpoolingCustomException exception) {
             httpStatus = HttpStatus.BAD_REQUEST;
             response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error Created a Route"));
