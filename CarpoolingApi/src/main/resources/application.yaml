@@ -8,3 +8,23 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: carpooling2023_
+server:
+  port: 8081
+processor:
+    queue:
+      route:
+        request: route.request-route.qu
+        request-routing-key: request-route.rk
+        response-create: route.response-route.created.qu
+        create-routing-key: response-route.created.rk
+    exchange:
+      route: route.ex
+google:
+  maps:
+    api:
+      key: 7u7

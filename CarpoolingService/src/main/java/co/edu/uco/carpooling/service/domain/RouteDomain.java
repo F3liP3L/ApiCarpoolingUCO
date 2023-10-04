@@ -1,8 +1,11 @@
 package co.edu.uco.carpooling.service.domain;
 
+import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static co.edu.uco.crosscutting.util.UtilDate.TIME;
@@ -15,23 +18,26 @@ public class RouteDomain {
     private UUID id;
     private DriverPerVehicleDomain driverVehicle;
     private int routeCapacity;
-    private PointOfInterestDomain pointOfInterest;
+    private List<PositionDomain> positions;
+    private List<PointOfInterestDomain> pointOfInterest;
     private LocalDateTime routeTime;
     private StatusDomain routeStatus;
 
-    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, PointOfInterestDomain pointOfInterest, LocalDateTime routeTime, StatusDomain routeStatus) {
+    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, List<PointOfInterestDomain> pointOfInterest, LocalDateTime routeTime, StatusDomain routeStatus) {
         setId(id);
         setDriverVehicle(driverVehicle);
         setRouteCapacity(routeCapacity);
         setRouteStatus(routeStatus);
         setPointOfInterest(pointOfInterest);
         setRouteTime(routeTime);
+        setPositions(positions);
     }
 
     public RouteDomain() {
         setId(UtilUUID.getUtilUUID().getNewUUID());
         setRouteCapacity(ZERO);
-        setPointOfInterest(PointOfInterestDomain.build());
+        setPositions(new ArrayList<>());
+        setPointOfInterest(new ArrayList<>());
         setRouteStatus(StatusDomain.build());
         setDriverVehicle(DriverPerVehicleDomain.build());
         setRouteTime(TIME);
@@ -54,12 +60,12 @@ public class RouteDomain {
                 .isLessThan(capacity, ZERO) ? ZERO: capacity;
     }
 
-    public PointOfInterestDomain getPointOfInterest() {
+    public List<PointOfInterestDomain> getPointOfInterest() {
         return pointOfInterest;
     }
 
-    public void setPointOfInterest(PointOfInterestDomain pointOfInterest) {
-        this.pointOfInterest = pointOfInterest;
+    public void setPointOfInterest(List<PointOfInterestDomain> pointOfInterest) {
+        this.pointOfInterest = UtilObject.getUtilObject().getDefaultIsNull(pointOfInterest, new ArrayList<>());
     }
 
     public LocalDateTime getRouteTime() {
@@ -86,11 +92,32 @@ public class RouteDomain {
         this.routeStatus = getUtilObject().getDefaultIsNull(routeStatus, StatusDomain.build());
     }
 
+    public List<PositionDomain> getPositions() {
+        return positions;
+    }
+
+    public void setPositions(List<PositionDomain> positions) {
+        this.positions = UtilObject.getUtilObject().getDefaultIsNull(positions, new ArrayList<>());
+    }
+
     public static final RouteDomain build() {
         return new RouteDomain();
     }
 
-    public static final RouteDomain build(final UUID id, final DriverPerVehicleDomain driverPerVehicle, final int routeCapacity, final PointOfInterestDomain pointOfInterest, final LocalDateTime routeTime, final StatusDomain routeStatus) {
+    public static final RouteDomain build(final UUID id, final DriverPerVehicleDomain driverPerVehicle, final int routeCapacity, final List<PointOfInterestDomain> pointOfInterest, final LocalDateTime routeTime, final StatusDomain routeStatus) {
         return new RouteDomain(id,driverPerVehicle,routeCapacity,pointOfInterest,routeTime,routeStatus);
+    }
+
+    @Override
+    public String toString() {
+        return "RouteDomain{" +
+                "id=" + id +
+                ", driverVehicle=" + driverVehicle +
+                ", routeCapacity=" + routeCapacity +
+                ", positions=" + positions +
+                ", pointOfInterest=" + pointOfInterest +
+                ", routeTime=" + routeTime +
+                ", routeStatus=" + routeStatus +
+                '}';
     }
 }

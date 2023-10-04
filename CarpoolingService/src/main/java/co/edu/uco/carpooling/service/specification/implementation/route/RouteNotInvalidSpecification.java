@@ -4,7 +4,6 @@ import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
 import co.edu.uco.carpooling.service.specification.CompositeSpecification;
 import co.edu.uco.crosscutting.util.UtilNumeric;
-import co.edu.uco.crosscutting.util.UtilText;
 import org.springframework.stereotype.Component;
 
 import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
@@ -23,7 +22,7 @@ public class RouteNotInvalidSpecification extends CompositeSpecification<RouteDo
         if (!UtilNumeric.getUtilNumeric().isBetween(route.getRouteCapacity(), CAPACITY_MIN, CAPACITY_MAX, true, true)) {
             throw CarpoolingCustomException.buildUserException("Route capacity exceeds maximum allowable quantity");
         }
-        if (route.getPointOfInterest().getName().equals(UtilText.EMPTY)) {
+        if (route.getPointOfInterest().isEmpty()) {
             throw CarpoolingCustomException.buildUserException("The point of interest through which it is intended to pass does not exist.");
         }
         if (getUtilDate().isBefore(getUtilDate().getLocalDataTimeADate(route.getRouteTime()))) {
