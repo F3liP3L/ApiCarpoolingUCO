@@ -13,14 +13,27 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.0.4'
+	implementation group: 'org.springframework.vault', name: 'spring-vault-dependencies', version: '3.0.0', ext: 'pom'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-vault-config', version: '4.0.1'
+
 
 	// Own modules
 	implementation project(':CarpoolingCrossCutting')
 	implementation project(':CrossCutting')
 	implementation project(':CarpoolingDTO')
 	implementation project(':CarpoolingService')
+	implementation project(':CarpoolingEntity')
 	implementation project(':CarpoolingInfrastructure')
+}
 
+ext {
+	set('springCloudVersion', "2022.0.4")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
 }
 
 tasks.named('test') {

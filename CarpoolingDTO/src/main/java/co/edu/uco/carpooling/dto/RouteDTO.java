@@ -98,7 +98,7 @@ public class RouteDTO {
         this.positions = UtilObject.getUtilObject().getDefaultIsNull(positions, new ArrayList<>());
     }
 
-    public static final RouteDTO create() {
+    public static RouteDTO create() {
         return new RouteDTO();
     }
 }

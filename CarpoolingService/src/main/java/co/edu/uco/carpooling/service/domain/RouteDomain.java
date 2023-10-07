@@ -19,11 +19,11 @@ public class RouteDomain {
     private DriverPerVehicleDomain driverVehicle;
     private int routeCapacity;
     private List<PositionDomain> positions;
-    private List<PointOfInterestDomain> pointOfInterest;
+    private List<String> pointOfInterest;
     private LocalDateTime routeTime;
     private StatusDomain routeStatus;
 
-    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, List<PointOfInterestDomain> pointOfInterest, LocalDateTime routeTime, StatusDomain routeStatus) {
+    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, List<String> pointOfInterest, List<PositionDomain> positions, LocalDateTime routeTime, StatusDomain routeStatus) {
         setId(id);
         setDriverVehicle(driverVehicle);
         setRouteCapacity(routeCapacity);
@@ -60,11 +60,11 @@ public class RouteDomain {
                 .isLessThan(capacity, ZERO) ? ZERO: capacity;
     }
 
-    public List<PointOfInterestDomain> getPointOfInterest() {
+    public List<String> getPointOfInterest() {
         return pointOfInterest;
     }
 
-    public void setPointOfInterest(List<PointOfInterestDomain> pointOfInterest) {
+    public void setPointOfInterest(List<String> pointOfInterest) {
         this.pointOfInterest = UtilObject.getUtilObject().getDefaultIsNull(pointOfInterest, new ArrayList<>());
     }
 
@@ -72,7 +72,7 @@ public class RouteDomain {
         return routeTime;
     }
 
-    public void setRouteTime(final LocalDateTime routeTime) {
+    public void setRouteTime(LocalDateTime routeTime) {
         this.routeTime = getUtilDate().getDefaultTimeIfNull(routeTime);
     }
 
@@ -100,12 +100,12 @@ public class RouteDomain {
         this.positions = UtilObject.getUtilObject().getDefaultIsNull(positions, new ArrayList<>());
     }
 
-    public static final RouteDomain build() {
+    public static RouteDomain build() {
         return new RouteDomain();
     }
 
-    public static final RouteDomain build(final UUID id, final DriverPerVehicleDomain driverPerVehicle, final int routeCapacity, final List<PointOfInterestDomain> pointOfInterest, final LocalDateTime routeTime, final StatusDomain routeStatus) {
-        return new RouteDomain(id,driverPerVehicle,routeCapacity,pointOfInterest,routeTime,routeStatus);
+    public static RouteDomain build(final UUID id, final DriverPerVehicleDomain driverPerVehicle, final int routeCapacity, final List<String> pointOfInterest, final List<PositionDomain> positions, final LocalDateTime routeTime, final StatusDomain routeStatus) {
+        return new RouteDomain(id,driverPerVehicle,routeCapacity,pointOfInterest,positions,routeTime,routeStatus);
     }
 
     @Override

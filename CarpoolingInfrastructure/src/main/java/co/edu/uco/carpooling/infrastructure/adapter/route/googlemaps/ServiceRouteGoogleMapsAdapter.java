@@ -2,7 +2,6 @@ package co.edu.uco.carpooling.infrastructure.adapter.route.googlemaps;
 
 import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.infrastructure.adapter.route.googlemaps.model.RouteSegment;
-import co.edu.uco.carpooling.service.domain.PointOfInterestDomain;
 import co.edu.uco.carpooling.service.domain.PositionDomain;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
 import co.edu.uco.carpooling.service.model.Position;
@@ -65,10 +64,8 @@ public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
                 // Procesa los resultados de lugares cercanos.
 
                 for (PlacesSearchResult searchResult : searchResponse.results) {
-                    if (route.getPointOfInterest().stream().filter(point -> point.getName().equals(searchResult.name)).findFirst().isEmpty()) {
-                        PointOfInterestDomain pointOfInterest = PointOfInterestDomain.build();
-                        pointOfInterest.setName(searchResult.name);
-                        route.getPointOfInterest().add(pointOfInterest);
+                    if (route.getPointOfInterest().stream().filter(point -> point.equals(searchResult.name)).findFirst().isEmpty()) {
+                        route.getPointOfInterest().add(searchResult.name);
                     }
                 }
             }

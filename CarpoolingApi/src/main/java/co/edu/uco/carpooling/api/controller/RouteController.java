@@ -28,8 +28,6 @@ public class RouteController {
     @Autowired
     private RegisterRouteUseCaseFacade facade;
     @Autowired
-    private ServiceRoutePort routePort;
-    @Autowired
     private DTOAssembler<RouteDomain, RouteDTO> dtoAssembler;
     @PostMapping()
     public ResponseEntity<Response<RouteDTO>> create(@RequestBody RouteDTO route){
@@ -67,8 +65,8 @@ public class RouteController {
         HttpStatus httpStatus = HttpStatus.CREATED;
         response.setData(new ArrayList<>());
         try {
-            RouteDomain route = routePort.buildRoute(new Position("", ""), new Position("", ""));
-            response.addData(dtoAssembler.assembleDto(route));
+            //RouteDomain route = routePort.buildRoute(new Position("", ""), new Position("", ""));
+            //response.addData(dtoAssembler.assembleDto(route));
             response.addMessage(Message.createSuccessMessage("La ruta ha sido registrada con total exito", "registro de ruta exitoso"));
             log.info(response.toString());
         } catch (CarpoolingCustomException exception) {

@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://containers-us-west-204.railway.app:7747/railway
     username: postgres
-    password: BScWjyfvqmHY5QTAmOCr
+    password: JmB6Hs7ztNe2c8bzG6Ak
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
@@ -13,8 +13,18 @@ spring:
     port: 5672
     username: admin
     password: carpooling2023_
+  application:
+      name: microservice-route
+  cloud:
+    vault:
+      token: hvs.u9Wzar894whiuqpPK57NOJiq
+      scheme: http
+      host: localhost
+      port: 8200
+  config:
+    import: vault://
 server:
-  port: 8081
+  port: 8082
 processor:
     queue:
       route:
@@ -28,3 +38,4 @@ google:
   maps:
     api:
       key: 7u7
+hola: ${api-key}
