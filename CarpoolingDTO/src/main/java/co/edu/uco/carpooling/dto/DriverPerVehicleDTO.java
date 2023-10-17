@@ -46,8 +46,16 @@ public class DriverPerVehicleDTO {
         this.nameVehicle = getUtilText().trim(nameVehicle);
     }
 
-    public static final DriverPerVehicleDTO create() {
+    public static DriverPerVehicleDTO create() {
         return new DriverPerVehicleDTO();
     }
 
+    @Override
+    public String toString() {
+        return "DriverPerVehicleDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nameVehicle='" + nameVehicle + '\'' +
+                '}';
+    }
 }

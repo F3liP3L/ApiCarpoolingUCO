@@ -1,15 +1,6 @@
 package co.edu.uco.carpooling.infrastructure.adapter.route.openstreetmap;
 
-import co.edu.uco.carpooling.crosscutting.util.MapperJsonObject;
-import co.edu.uco.carpooling.infrastructure.adapter.route.openstreetmap.client.POIServiceClient;
-import co.edu.uco.carpooling.service.domain.RouteDomain;
-import co.edu.uco.carpooling.service.model.Position;
-import co.edu.uco.carpooling.service.port.route.ServiceRoutePort;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

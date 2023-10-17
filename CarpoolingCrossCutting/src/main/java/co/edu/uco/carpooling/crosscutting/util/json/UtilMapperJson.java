@@ -1,22 +1,25 @@
-package co.edu.uco.carpooling.crosscutting.util;
+package co.edu.uco.carpooling.crosscutting.util.json;
 
+import co.edu.uco.carpooling.crosscutting.util.json.config.LocalDateTimeDeserializer;
 import co.edu.uco.crosscutting.exception.GeneralException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializer;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Component
 public class UtilMapperJson implements MapperJsonObject {
     private final ObjectMapper mapper = new ObjectMapper();
     public UtilMapperJson() {
+        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss"));
+        mapper.registerModule(new JavaTimeModule());
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
@@ -42,7 +45,7 @@ public class UtilMapperJson implements MapperJsonObject {
     public Optional<String> executeGson(Object object) {
         try {
             Gson gson = new GsonBuilder().serializeNulls()
-                    .registerTypeAdapter(LocalDateTime.class, (JsonDeserializer<LocalDateTime>) (json, typeOfT, context) -> LocalDateTime.parse(json.getAsString(), DateTimeFormatter.ISO_LOCAL_DATE_TIME))
+                    .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())
                     .create();
             String objectToJson = gson.toJson(object);
             return Optional.ofNullable(objectToJson);
