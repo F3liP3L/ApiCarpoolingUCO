@@ -18,6 +18,6 @@ public class ValidRouteSpecification extends CompositeSpecification<RouteDomain>
 
     @Override
     public boolean isSatisfyBy(RouteDomain object) {
-        return notDefaultSpecification.and(notInvalidSpecification).andNot(existByIdSpecification).and(driverVehicleRouteActiveSpecification).isSatisfyBy(object);
+        return notDefaultSpecification.and(notInvalidSpecification).andNot(existByIdSpecification).isSatisfyBy(object);
     }
 }

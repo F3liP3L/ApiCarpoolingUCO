@@ -27,4 +27,7 @@ public class PositionDomain {
     public void setLatitude(String latitude) {
         this.latitude = UtilText.getUtilText().trim(latitude);
     }
+    public static PositionDomain build(){
+        return new PositionDomain();
+    }
 }

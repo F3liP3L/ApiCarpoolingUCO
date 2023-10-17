@@ -4,7 +4,6 @@ import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.infrastructure.adapter.route.googlemaps.model.RouteSegment;
 import co.edu.uco.carpooling.service.domain.PositionDomain;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
-import co.edu.uco.carpooling.service.model.Position;
 import co.edu.uco.carpooling.service.port.route.ServiceRoutePort;
 import com.google.maps.DirectionsApi;
 import com.google.maps.GeoApiContext;
@@ -23,7 +22,7 @@ public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
     @Autowired
     private GeoApiContext geoApiContext;
     @Override
-    public RouteDomain buildRoute(Position origin, Position destination) {
+    public RouteDomain buildRoute(PositionDomain origin, PositionDomain destination) {
         String positionOrigin = String.format("%s,%s", origin.getLatitude(), origin.getLongitude());
         String positionDestination = String.format("%s,%s", destination.getLatitude(), destination.getLongitude());
         return buildRouteService(positionOrigin, positionDestination);

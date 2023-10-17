@@ -18,12 +18,14 @@ public class RouteDomain {
     private UUID id;
     private DriverPerVehicleDomain driverVehicle;
     private int routeCapacity;
+    private PositionDomain origin;
+    private PositionDomain destination;
     private List<PositionDomain> positions;
     private List<String> pointOfInterest;
     private LocalDateTime routeTime;
     private StatusDomain routeStatus;
 
-    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, List<String> pointOfInterest, List<PositionDomain> positions, LocalDateTime routeTime, StatusDomain routeStatus) {
+    public RouteDomain(UUID id, DriverPerVehicleDomain driverVehicle, int routeCapacity, List<String> pointOfInterest, List<PositionDomain> positions, PositionDomain origin, PositionDomain destination, LocalDateTime routeTime, StatusDomain routeStatus) {
         setId(id);
         setDriverVehicle(driverVehicle);
         setRouteCapacity(routeCapacity);
@@ -31,6 +33,8 @@ public class RouteDomain {
         setPointOfInterest(pointOfInterest);
         setRouteTime(routeTime);
         setPositions(positions);
+        setOrigin(origin);
+        setDestination(destination);
     }
 
     public RouteDomain() {
@@ -41,6 +45,8 @@ public class RouteDomain {
         setRouteStatus(StatusDomain.build());
         setDriverVehicle(DriverPerVehicleDomain.build());
         setRouteTime(TIME);
+        setDestination(PositionDomain.build());
+        setOrigin(PositionDomain.build());
     }
 
     public UUID getId() {
@@ -99,13 +105,22 @@ public class RouteDomain {
     public void setPositions(List<PositionDomain> positions) {
         this.positions = UtilObject.getUtilObject().getDefaultIsNull(positions, new ArrayList<>());
     }
+    public PositionDomain getOrigin() {
+        return origin;
+    }
+    public void setOrigin(PositionDomain origin) {
+        this.origin = UtilObject.getUtilObject().getDefaultIsNull(origin, PositionDomain.build());
+    }
+    public PositionDomain getDestination() {
+        return destination;
+    }
+
+    public void setDestination(PositionDomain destination) {
+        this.destination = UtilObject.getUtilObject().getDefaultIsNull(destination, PositionDomain.build());
+    }
 
     public static RouteDomain build() {
         return new RouteDomain();
-    }
-
-    public static RouteDomain build(final UUID id, final DriverPerVehicleDomain driverPerVehicle, final int routeCapacity, final List<String> pointOfInterest, final List<PositionDomain> positions, final LocalDateTime routeTime, final StatusDomain routeStatus) {
-        return new RouteDomain(id,driverPerVehicle,routeCapacity,pointOfInterest,positions,routeTime,routeStatus);
     }
 
     @Override
@@ -114,6 +129,8 @@ public class RouteDomain {
                 "id=" + id +
                 ", driverVehicle=" + driverVehicle +
                 ", routeCapacity=" + routeCapacity +
+                ", origin=" + origin +
+                ", destination=" + destination +
                 ", positions=" + positions +
                 ", pointOfInterest=" + pointOfInterest +
                 ", routeTime=" + routeTime +

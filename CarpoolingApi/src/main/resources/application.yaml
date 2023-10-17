@@ -1,28 +1,38 @@
 spring:
   datasource:
-    url: jdbc:postgresql://containers-us-west-204.railway.app:7747/railway
-    username: postgres
-    password: JmB6Hs7ztNe2c8bzG6Ak
+    url: ${url-database}
+    username: ${user-database}
+    password: ${password-database}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: admin
-    password: carpooling2023_
-  application:
+    host: ${rabbit-host}
+    port: 5671
+    username: ${rabbit-user}
+    password: ${rabbit-password}
+    virtual-host: ${rabbit-user}
+    ssl:
+      enabled: true
+    application:
       name: microservice-route
   cloud:
     vault:
-      token: hvs.u9Wzar894whiuqpPK57NOJiq
+      uri: http://18.116.86.155:8200
+      token: hvs.Ngw7aT7pxdwAkEj0GWkNRNB3
       scheme: http
-      host: localhost
-      port: 8200
+      connection-timeout: 5000
+      read-timeout: 15000
   config:
-    import: vault://
+    import: vault://cubbyhole/microservice-route
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          vault: DEBUG
 server:
   port: 8082
 processor:
@@ -37,5 +47,4 @@ processor:
 google:
   maps:
     api:
-      key: 7u7
-hola: ${api-key}
+      key: ${google-api-key}

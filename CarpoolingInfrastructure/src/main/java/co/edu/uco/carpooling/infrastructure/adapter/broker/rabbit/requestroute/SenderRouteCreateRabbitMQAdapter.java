@@ -3,7 +3,6 @@ package co.edu.uco.carpooling.infrastructure.adapter.broker.rabbit.requestroute;
 import co.edu.uco.carpooling.infrastructure.adapter.broker.rabbit.component.RabbitMQConfigureMessage;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
 import co.edu.uco.carpooling.service.port.broker.route.SenderRouteCreatePort;
-import co.edu.uco.crosscutting.util.UtilObject;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -17,8 +16,6 @@ import java.util.Optional;
 public class SenderRouteCreateRabbitMQAdapter implements SenderRouteCreatePort {
     @Autowired
     private RabbitTemplate rabbitTemplate;
-    @Value("${hola}")
-    private String hola;
     @Autowired
     private RabbitMQConfigureMessage configureMessage;
     @Value("${processor.queue.route.create-routing-key}")
@@ -32,7 +29,6 @@ public class SenderRouteCreateRabbitMQAdapter implements SenderRouteCreatePort {
         if (bodyMessage.isEmpty()) {
             return;
         }
-        System.out.println(UtilObject.getUtilObject().getDefaultIsNull(hola, new String("Holaaaaa")));
         rabbitTemplate.convertAndSend(routeExchange, responseCreateRoutingKey, bodyMessage.get());
     }
 }
