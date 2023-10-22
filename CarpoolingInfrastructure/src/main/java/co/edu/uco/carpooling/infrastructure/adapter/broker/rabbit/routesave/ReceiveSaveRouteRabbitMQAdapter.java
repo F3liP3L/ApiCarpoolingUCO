@@ -25,11 +25,10 @@ public class ReceiveSaveRouteRabbitMQAdapter implements ReceiveRouteSavePort {
         log.info(message);
         Optional<RouteDomain> route = mapperJson.execute(message, RouteDomain.class);
         if (route.isPresent()) {
-            log.info(route.get().toString());
             try {
                 registerRouteUseCase.execute(route.get());
             } catch (CarpoolingCustomException exception) {
-                log.error(exception.getMessage());
+                log.error(exception.getUserMessage());
             }
         } else {
             log.error("A problem occurred when trying to read data from the queue to save a route.");

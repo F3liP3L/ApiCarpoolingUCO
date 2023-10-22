@@ -34,10 +34,9 @@ public class RegisterRouteUseCaseImpl implements RegisterRouteUseCase {
         try {
             RouteEntity route = entityAssembler.assembleEntity(domain);
             route.getRouteStatus().setId(UtilUUID.getStringToUUID("12b8b3e4-c10a-4018-9e90-8d3b475c2cef"));
-            //route.getPointOfInterest().forEach(point -> point.setId(UtilUUID.getUtilUUID().getNewUUID()));
             Optional<String> response = mapper.execute(domain.getPositions());
             response.ifPresent(route::setPositions);
-            //specification.isSatisfyBy(domain);
+            specification.isSatisfyBy(domain);
             routeRepository.save(route);
         } catch (CarpoolingCustomException exception) {
             log.error(exception.getUserMessage());
