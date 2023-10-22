@@ -21,13 +21,12 @@ public class ReceiverRequestRouteRabbitMQAdapter implements RequestRoutePort {
     @Override
     @RabbitListener(queues = "${processor.queue.route.request}")
     public void execute(String message) {
-        Optional<RouteDomain> route = mapperJson.execute(message, RouteDomain.class);
+       Optional<RouteDomain> route = mapperJson.execute(message, RouteDomain.class);
        if (route.isPresent()) {
            log.info(route.get().toString());
            createRouteUseCase.execute(route.get());
         } else {
            log.error("A problem has occurred trying to read data from the route request queue.");
        }
-
     }
 }

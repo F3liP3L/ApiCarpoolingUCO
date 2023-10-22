@@ -14,6 +14,10 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
     @Value("${processor.queue.route.response-create}")
     private String responseCreateRouteQueue;
+    @Value("${processor.queue.route.save-route}")
+    private String saveRouteQueue;
+    @Value("${processor.queue.route.save-routing-key}")
+    private String saveRoutingKey;
     @Value("${processor.queue.route.create-routing-key}")
     private String responseCreateRoutingKey;
     @Value("${processor.exchange.route}")
@@ -23,6 +27,8 @@ public class RabbitMQConfig {
         return new Queue(responseCreateRouteQueue);
     }
     @Bean
+    public Queue saveRoute() { return new Queue(saveRouteQueue); }
+    @Bean
     public DirectExchange routeExchange(){
         return new DirectExchange(routeExchange);
     }
@@ -31,5 +37,11 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(requestRoute())
                 .to(routeExchange())
                 .with(responseCreateRoutingKey);
+    }
+    @Bean
+    public Binding routeSaveBinding() {
+        return BindingBuilder.bind(saveRoute())
+                .to(routeExchange())
+                .with(saveRoutingKey);
     }
 }
