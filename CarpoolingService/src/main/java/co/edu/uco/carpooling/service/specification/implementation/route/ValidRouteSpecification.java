@@ -13,9 +13,6 @@ public class ValidRouteSpecification extends CompositeSpecification<RouteDomain>
     private RouteNotInvalidSpecification notInvalidSpecification;
     @Autowired
     private RouteExistIdSpecification existByIdSpecification;
-    @Autowired
-    private RouteExistDriverVehicleRouteActive driverVehicleRouteActiveSpecification;
-
     @Override
     public boolean isSatisfyBy(RouteDomain object) {
         return notDefaultSpecification.and(notInvalidSpecification).andNot(existByIdSpecification).isSatisfyBy(object);
