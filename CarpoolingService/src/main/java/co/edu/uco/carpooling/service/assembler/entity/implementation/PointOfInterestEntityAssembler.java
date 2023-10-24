@@ -1,12 +1,12 @@
 package co.edu.uco.carpooling.service.assembler.entity.implementation;
 
 import co.edu.uco.carpooling.dto.PointOfInterestDTO;
-import co.edu.uco.carpooling.entity.PointOfInterestEntity;
 import co.edu.uco.carpooling.service.assembler.entity.EntityAssembler;
 import co.edu.uco.carpooling.service.domain.PointOfInterestDomain;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+/*
 @Component
 public class PointOfInterestEntityAssembler implements EntityAssembler<PointOfInterestEntity, PointOfInterestDomain, PointOfInterestDTO> {
     private ModelMapper modelMapper;
@@ -29,5 +29,4 @@ public class PointOfInterestEntityAssembler implements EntityAssembler<PointOfIn
     public PointOfInterestDTO assembleDTO(PointOfInterestEntity entity) {
         return modelMapper.map(entity, PointOfInterestDTO.class);
     }
-
-}
+}*/

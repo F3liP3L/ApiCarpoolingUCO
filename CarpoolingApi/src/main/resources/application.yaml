@@ -21,8 +21,7 @@ spring:
   cloud:
     vault:
       uri: http://18.116.86.155:8200
-      token: hvs.Ngw7aT7pxdwAkEj0GWkNRNB3
-      scheme: http
+      token: 7u7
       connection-timeout: 5000
       read-timeout: 15000
   config:
@@ -39,9 +38,11 @@ processor:
     queue:
       route:
         request: route.request-route.qu
+        save-route: route.save-route.qu
         request-routing-key: request-route.rk
         response-create: route.response-route.created.qu
         create-routing-key: response-route.created.rk
+        save-routing-key: save-route.save.rk
     exchange:
       route: route.ex
 google:

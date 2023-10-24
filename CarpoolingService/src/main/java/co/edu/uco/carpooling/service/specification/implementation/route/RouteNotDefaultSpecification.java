@@ -13,7 +13,6 @@ public class RouteNotDefaultSpecification extends CompositeSpecification<RouteDo
     public boolean isSatisfyBy(RouteDomain object) {
         return isValid(object);
     }
-
     private boolean isValid(RouteDomain route) {
         if (UtilUUID.getUtilUUID().getStringFromUUID(route.getId()).length() != 36 || UtilUUID.getUtilUUID().getStringFromUUID(route.getId()).equals(UtilUUID.DEFAULT_UUID_STRING)) {
             throw CarpoolingCustomException.buildUserException("The id the route is default.");
