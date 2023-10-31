@@ -4,7 +4,6 @@ import co.edu.uco.crosscutting.util.UtilUUID;
 
 import java.util.UUID;
 
-import static co.edu.uco.crosscutting.util.UtilText.EMPTY;
 import static co.edu.uco.crosscutting.util.UtilText.getUtilText;
 
 public class StatusDomain {

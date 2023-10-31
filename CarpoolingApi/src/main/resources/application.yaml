@@ -21,7 +21,7 @@ spring:
   cloud:
     vault:
       uri: http://18.116.86.155:8200
-      token: 7u7
+      token: UWU
       connection-timeout: 5000
       read-timeout: 15000
   config:
