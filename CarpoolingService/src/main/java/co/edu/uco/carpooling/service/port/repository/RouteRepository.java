@@ -11,6 +11,5 @@ public interface RouteRepository {
     void save(RouteEntity route);
 
     Optional<RouteEntity> findById(UUID id);
-
-    List<RouteEntity> findByDriverVehicleIdAndRouteStatusId(UUID driverId, UUID statusId);
+    List<RouteEntity> findActivateRouteByStatus();
 }

@@ -4,8 +4,10 @@ import co.edu.uco.carpooling.api.response.Response;
 import co.edu.uco.carpooling.api.response.dto.Message;
 import co.edu.uco.carpooling.crosscutting.exception.CarpoolingCustomException;
 import co.edu.uco.carpooling.dto.RouteDTO;
+import co.edu.uco.carpooling.service.usecase.route.implementation.GetActivateRouteUseCaseImpl;
 import co.edu.uco.crosscutting.exception.GeneralException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,8 @@ import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
 @RequestMapping("api/v1/carpooling/route")
 @Slf4j
 public class RouteController {
+    @Autowired
+    private GetActivateRouteUseCaseImpl getActivateRouteUseCase;
     @PostMapping()
     public ResponseEntity<Response<RouteDTO>> create(@RequestBody RouteDTO route){
         Response<RouteDTO> response = new Response<>();
@@ -54,6 +58,7 @@ public class RouteController {
         HttpStatus httpStatus = HttpStatus.CREATED;
         response.setData(new ArrayList<>());
         try {
+            log.warn(getActivateRouteUseCase.toString());
             response.addMessage(Message.createSuccessMessage("La ruta ha sido registrada con total exito", "registro de ruta exitoso"));
             log.info(response.toString());
         } catch (CarpoolingCustomException exception){
