@@ -43,6 +43,8 @@ processor:
         response-create: route.response-route.created.qu
         create-routing-key: response-route.created.rk
         save-routing-key: save-route.save.rk
+        response-get-activate-route: route.get.activate-route.qu
+        get-activate-routing-key: response-route.get-activate.rk
     exchange:
       route: route.ex
 google:

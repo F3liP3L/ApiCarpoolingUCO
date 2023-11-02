@@ -22,12 +22,23 @@ public class RabbitMQConfig {
     private String responseCreateRoutingKey;
     @Value("${processor.exchange.route}")
     private String routeExchange;
+    @Value("${processor.queue.route.response-get-activate-route}")
+    private String getActivateRoute;
+    @Value("${processor.queue.route.get-activate-routing-key}")
+    private String getActivateRouteKey;
+
     @Bean
     public Queue requestRoute() {
         return new Queue(responseCreateRouteQueue);
     }
     @Bean
-    public Queue saveRoute() { return new Queue(saveRouteQueue); }
+    public Queue saveRoute() {
+        return new Queue(saveRouteQueue);
+    }
+    @Bean
+    public Queue getActivateRoute() {
+        return new Queue(getActivateRoute);
+    }
     @Bean
     public DirectExchange routeExchange(){
         return new DirectExchange(routeExchange);
@@ -43,5 +54,11 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(saveRoute())
                 .to(routeExchange())
                 .with(saveRoutingKey);
+    }
+    @Bean
+    public Binding getActivateRouteBinding() {
+        return BindingBuilder.bind(getActivateRoute())
+                .to(routeExchange())
+                .with(getActivateRouteKey);
     }
 }
