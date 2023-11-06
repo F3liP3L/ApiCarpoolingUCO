@@ -1,43 +1,52 @@
 package co.edu.uco.carpooling.infrastructure.adapter.route.openstreetmap;
 
+import co.edu.uco.carpooling.crosscutting.util.json.MapperJsonObject;
+import co.edu.uco.carpooling.infrastructure.adapter.route.openstreetmap.client.POIServiceClient;
+import co.edu.uco.carpooling.service.domain.PositionDomain;
+import co.edu.uco.carpooling.service.domain.RouteDomain;
+import co.edu.uco.carpooling.service.port.route.ServiceRoutePort;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("OpenStreetMapAdapter")
 @Slf4j
-public class ServiceRouteOpenStreetMapAdapter  {
-    /*
+public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
     @Autowired
     private POIServiceClient serviceClient;
     @Autowired
     private MapperJsonObject mapper;
     @Override
-    public RouteDomain buildRoute(Position positionInit, Position positionFinal) {
-        log.info(extractRouteService(6.1430789009693205, -75.37258843783178, 6.148838870261894, -75.36624577167204));
-        //jsonToJsonObject(extractRouteService(6.1408891803542085, -75.37795313228223, 6.143063689117882, -75.37257936594409));
+    public RouteDomain buildRoute(PositionDomain origin, PositionDomain destination) {
+        String positionOrigin = String.format("%s,%s", origin.getLatitude(), origin.getLongitude());
+        String positionDestination = String.format("%s,%s", destination.getLatitude(), destination.getLongitude());
+        extractRouteService(positionOrigin, positionDestination);
         return RouteDomain.build();
     }
 
-    private String extractRouteService(double startLat, double startLon, double endLat, double endLon) {
+    private String extractRouteService(String origin, String destination) {
         String queryPOI = "[out:json];" +
                 "(" +
-                "  way(around:100, " + startLat + ", " + startLon + ");" +
-                "  way(around:100, " + endLat + ", " + endLon + ");" +
+                "  way(around:100, " + origin + ");" +
+                "  way(around:100, " + destination + ");" +
                 ");" +
-                "node(around:100, " + startLat + ", " + startLon + ");" +
+                "node(around:100, " + origin + ");" +
                 "out;";
         String queryPointRoute = "[out:json];" +
-                "way(around:10, " + startLat + ", " + startLon + ");" +
-                "way(around:10, " + endLat + ", " + endLon + ");" +
+                "way(around:10, " + origin + ");" +
+                "way(around:10, " + destination + ");" +
                 "node(w);" + // Esto recupera los nodos de los caminos encontrados
-                "out;";;
+                "out;";
         return serviceClient.getPOIsAlongRoute(queryPointRoute);
     }
 
     private void extractPosition(String jsonResponse) {
         // Parsea la respuesta JSON utilizando Gson
         JsonParser parser = new JsonParser();
-        JsonObject jsonObject = parser.parse(jsonResponse).getAsJsonObject();
+        JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
 
         // Obtén la matriz de elementos (nodos, caminos, relaciones)
         JsonArray elements = jsonObject.getAsJsonArray("elements");
@@ -60,11 +69,11 @@ public class ServiceRouteOpenStreetMapAdapter  {
                     name = tags.get("name").getAsString();
                 }
             }
-            System.out.println("ID: " + id);
-            System.out.println("Latitud: " + lat);
-            System.out.println("Longitud: " + lon);
-            System.out.println("Nombre: " + name);
-            System.out.println("------------------------");
+            log.info("ID: " + id);
+            log.info("Latitud: " + lat);
+            log.info("Longitud: " + lon);
+            log.info("Nombre: " + name);
+            log.info("------------------------");
         }
-    }*/
+    }
 }

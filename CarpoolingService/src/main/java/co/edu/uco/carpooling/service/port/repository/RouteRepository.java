@@ -7,9 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface RouteRepository {
-
     void save(RouteEntity route);
-
     Optional<RouteEntity> findById(UUID id);
     List<RouteEntity> findActivateRouteByStatus();
 }

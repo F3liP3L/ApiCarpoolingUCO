@@ -1,6 +1,5 @@
 package co.edu.uco.carpooling.infrastructure.adapter.broker.rabbit.routeactivate;
 
-import co.edu.uco.carpooling.infrastructure.adapter.broker.rabbit.RabbitMQConfig;
 import co.edu.uco.carpooling.infrastructure.adapter.broker.rabbit.component.RabbitMQConfigureMessage;
 import co.edu.uco.carpooling.service.domain.RouteDomain;
 import co.edu.uco.carpooling.service.port.broker.route.SenderActivateRoutePort;
@@ -23,7 +22,6 @@ public class SenderRouteActivateRabbitMQAdapter implements SenderActivateRoutePo
     private String getActivateRouteKey;
     @Value("${processor.exchange.route}")
     private String routeExchange;
-
     @Override
     public void execute(RouteDomain message, String id) {
         MessageProperties messageProperties = rabbitMQConfigureMessage.generate(id);

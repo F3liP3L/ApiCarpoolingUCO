@@ -2,7 +2,6 @@ package co.edu.uco.carpooling.dto;
 
 import co.edu.uco.crosscutting.util.UtilObject;
 import co.edu.uco.crosscutting.util.UtilUUID;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +11,7 @@ import static co.edu.uco.crosscutting.util.UtilDate.TIME;
 import static co.edu.uco.crosscutting.util.UtilDate.getUtilDate;
 import static co.edu.uco.crosscutting.util.UtilNumeric.ZERO;
 import static co.edu.uco.crosscutting.util.UtilNumeric.getUtilNumeric;
+
 
 public class RouteDTO {
     private UUID id;
@@ -97,8 +97,20 @@ public class RouteDTO {
     public void setPositions(List<PositionDTO> positions) {
         this.positions = UtilObject.getUtilObject().getDefaultIsNull(positions, new ArrayList<>());
     }
-
     public static RouteDTO create() {
         return new RouteDTO();
+    }
+
+    @Override
+    public String toString() {
+        return "RouteDTO{" +
+                "id=" + id +
+                ", driverVehicle=" + driverVehicle +
+                ", routeCapacity=" + routeCapacity +
+                ", positions=" + positions +
+                ", pointOfInterest=" + pointOfInterest +
+                ", routeTime=" + routeTime +
+                ", routeStatus=" + routeStatus +
+                '}';
     }
 }

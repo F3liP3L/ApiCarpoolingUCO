@@ -16,7 +16,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "city")
 public class CityEntity {
-
         @Id
         private UUID id;
         private String name;

@@ -16,13 +16,11 @@ public class Response<D> {
         if(!UtilObject.getUtilObject().isNull(message)) {
             getMessage().add(message);
         }
-
     }
     public void addData(final D data ) {
         if(!UtilObject.getUtilObject().isNull(data)) {
             getData().add(data);
         }
-
     }
 
     public List<D> getData() {
@@ -46,6 +44,4 @@ public class Response<D> {
     public void setMessage(List<Message> messages) {
         this.message = UtilObject.getUtilObject().getDefaultIsNull(messages, new ArrayList<>());
     }
-
-
 }

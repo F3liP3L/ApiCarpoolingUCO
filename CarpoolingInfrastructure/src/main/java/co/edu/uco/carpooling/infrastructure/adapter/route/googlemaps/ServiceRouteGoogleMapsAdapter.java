@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("GoogleMapsAdapter")
 public class ServiceRouteGoogleMapsAdapter implements ServiceRoutePort {
     @Autowired
     private GeoApiContext geoApiContext;

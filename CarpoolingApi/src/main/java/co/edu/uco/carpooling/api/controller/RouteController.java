@@ -13,7 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import static co.edu.uco.crosscutting.util.UtilObject.getUtilObject;
 
@@ -52,18 +54,18 @@ public class RouteController {
     }
 
     @GetMapping()
-    public ResponseEntity<Response<RouteDTO>> getRoutes(){
-        Response<RouteDTO> response = new Response<>();
-        ResponseEntity<Response<RouteDTO>> responseEntity;
+    public ResponseEntity<Response<List<RouteDTO>>> getRoutes(){
+        Response<List<RouteDTO>> response = new Response<>();
+        ResponseEntity<Response<List<RouteDTO>>> responseEntity;
         HttpStatus httpStatus = HttpStatus.CREATED;
         response.setData(new ArrayList<>());
         try {
-            log.warn(getActivateRouteUseCase.toString());
-            response.addMessage(Message.createSuccessMessage("La ruta ha sido registrada con total exito", "registro de ruta exitoso"));
+            response.addData(getActivateRouteUseCase.execute(Optional.of(RouteDTO.create())));
+            response.addMessage(Message.createSuccessMessage("Se ha cargado la ruta con total exito", "Carga de rutas exitosos"));
             log.info(response.toString());
         } catch (CarpoolingCustomException exception){
             httpStatus = HttpStatus.BAD_REQUEST;
-            response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error Created a Route"));
+            response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error al cargar la Route"));
             if (!getUtilObject().isNull(exception.getTechnicalMessage())
                     && !Objects.equals(exception.getTechnicalMessage(), exception.getUserMessage())) {
                 response.addMessage(Message.createErrorMessage(exception.getTechnicalMessage(), "Technical Message"));
