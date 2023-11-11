@@ -33,7 +33,7 @@ public class RouteController {
         response.setData(new ArrayList<>());
         try {
             response.addData(route);
-            response.addMessage(Message.createSuccessMessage("La ruta ha sido registrada con total exito", "registro de ruta exitoso"));
+            response.addMessage(Message.createSuccessMessage("The route has been successfully registered", "Successful routing"));
             log.info(response.toString());
         } catch (CarpoolingCustomException exception) {
             httpStatus = HttpStatus.BAD_REQUEST;
@@ -61,11 +61,11 @@ public class RouteController {
         response.setData(new ArrayList<>());
         try {
             response.addData(getActivateRouteUseCase.execute(Optional.of(RouteDTO.create())));
-            response.addMessage(Message.createSuccessMessage("Se ha cargado la ruta con total exito", "Carga de rutas exitosos"));
+            response.addMessage(Message.createSuccessMessage("The route has been loaded successfully.", "Successful route loading"));
             log.info(response.toString());
         } catch (CarpoolingCustomException exception){
             httpStatus = HttpStatus.BAD_REQUEST;
-            response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error al cargar la Route"));
+            response.addMessage(Message.createErrorMessage(exception.getUserMessage(), "Error to load Route"));
             if (!getUtilObject().isNull(exception.getTechnicalMessage())
                     && !Objects.equals(exception.getTechnicalMessage(), exception.getUserMessage())) {
                 response.addMessage(Message.createErrorMessage(exception.getTechnicalMessage(), "Technical Message"));

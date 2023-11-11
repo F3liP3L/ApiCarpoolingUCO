@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: microservice-route
   datasource:
     url: ${url-database}
     username: ${user-database}
@@ -16,12 +18,10 @@ spring:
     virtual-host: ${rabbit-user}
     ssl:
       enabled: true
-    application:
-      name: microservice-route
   cloud:
     vault:
-      uri: http://18.116.86.155:8200
-      token: hvs.JKAyN6C07hVD7uPSOWlyaBHB
+      uri: uri:8200
+      token: uwu
       connection-timeout: 5000
       read-timeout: 15000
   config:

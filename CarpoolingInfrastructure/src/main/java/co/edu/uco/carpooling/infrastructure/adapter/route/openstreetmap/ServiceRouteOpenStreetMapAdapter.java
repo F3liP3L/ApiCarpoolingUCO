@@ -17,8 +17,6 @@ import org.springframework.stereotype.Service;
 public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
     @Autowired
     private POIServiceClient serviceClient;
-    @Autowired
-    private MapperJsonObject mapper;
     @Override
     public RouteDomain buildRoute(PositionDomain origin, PositionDomain destination) {
         String positionOrigin = String.format("%s,%s", origin.getLatitude(), origin.getLongitude());
@@ -28,13 +26,6 @@ public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
     }
 
     private String extractRouteService(String origin, String destination) {
-        String queryPOI = "[out:json];" +
-                "(" +
-                "  way(around:100, " + origin + ");" +
-                "  way(around:100, " + destination + ");" +
-                ");" +
-                "node(around:100, " + origin + ");" +
-                "out;";
         String queryPointRoute = "[out:json];" +
                 "way(around:10, " + origin + ");" +
                 "way(around:10, " + destination + ");" +
@@ -45,7 +36,6 @@ public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
 
     private void extractPosition(String jsonResponse) {
         // Parsea la respuesta JSON utilizando Gson
-        JsonParser parser = new JsonParser();
         JsonObject jsonObject = JsonParser.parseString(jsonResponse).getAsJsonObject();
 
         // Obtén la matriz de elementos (nodos, caminos, relaciones)
@@ -60,8 +50,8 @@ public class ServiceRouteOpenStreetMapAdapter implements ServiceRoutePort {
             double lat = element.get("lat").getAsDouble();
             double lon = element.get("lon").getAsDouble();
 
-            // Aquí puedes agregar más atributos según tus necesidades
-            // Por ejemplo, para obtener el nombre del lugar, puedes buscar la etiqueta "name"
+            // Aquí se puede agregar más atributos según tus necesidades
+            // Para obtener el nombre del lugar, puedes buscar la etiqueta "name"
             String name = "";
             if (element.has("tags")) {
                 JsonObject tags = element.getAsJsonObject("tags");
